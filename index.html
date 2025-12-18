@@ -1,49 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Great for short stays, weekend trips, workations, and longer slow breaks in Trivandrum. Experience our 5-star Laurie Baker inspired farmhouse in Vilappilsala.">
     <title>Tamarind | A Quiet Retreat in Vilappilsala</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <style>
         /* --- DESIGN TOKENS --- */
         :root {
-            --brick: #B05E3C;      /* Laurie Baker Brick Red */
-            --cream: #FAF9F6;      /* Off-white/Plaster */
-            --stone: #E6E2D8;      /* Secondary background */
-            --green: #4A5D3F;      /* Tamarind Leaf Green */
-            --charcoal: #2C2C2C;   /* Text */
-            --star-gold: #D4AF37;  /* For reviews */
+            --brick: #B05E3C;
+            /* Laurie Baker Brick Red */
+            --cream: #FAF9F6;
+            /* Off-white/Plaster */
+            --stone: #E6E2D8;
+            /* Secondary background */
+            --green: #4A5D3F;
+            /* Tamarind Leaf Green */
+            --charcoal: #2C2C2C;
+            /* Text */
+            --star-gold: #D4AF37;
+            /* For reviews */
             --transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         /* --- RESET & BASE --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html { scroll-behavior: smooth; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--cream);
             color: var(--charcoal);
-            font-family: 'Quicksand', sans-serif; /* Updated Font */
+            font-family: 'Quicksand', sans-serif;
+            /* Updated Font */
             line-height: 1.8;
             overflow-x: hidden;
             font-weight: 400;
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: 'Quicksand', sans-serif;
-            font-weight: 600; /* Slightly bolder for headings */
+            font-weight: 600;
+            /* Slightly bolder for headings */
             color: var(--charcoal);
         }
 
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        
-        img { max-width: 100%; display: block; }
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
 
         /* --- UTILITIES --- */
         .container {
@@ -52,14 +80,16 @@
             padding: 0 2rem;
         }
 
-        .text-center { text-align: center; }
-        
+        .text-center {
+            text-align: center;
+        }
+
         .fade-up {
             opacity: 0;
             transform: translateY(30px);
             transition: var(--transition);
         }
-        
+
         .fade-up.visible {
             opacity: 1;
             transform: translateY(0);
@@ -78,10 +108,11 @@
         }
 
         .logo-container img {
-            width: 240px; 
+            width: 240px;
             height: 100px;
             object-fit: cover;
-            mix-blend-mode: multiply; /* Blends white bg into cream */
+            mix-blend-mode: multiply;
+            /* Blends white bg into cream */
         }
 
         /* --- HERO SECTION --- */
@@ -94,7 +125,7 @@
             position: relative;
             /* Update this URL with a photo of your actual house/garden */
             background: linear-gradient(rgba(250, 249, 246, 0.4), rgba(250, 249, 246, 0.7)),
-                        url('hero.jpg'); 
+                url('hero.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -189,7 +220,13 @@
             transform: translateY(-5px);
         }
 
-        .feature-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem; }
+        .feature-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
 
         .feature-card h3 {
             font-size: 1.5rem;
@@ -197,24 +234,111 @@
             color: var(--green);
         }
 
+        /* --- AMENITIES SECTION --- */
+        .amenities {
+            padding: 6rem 0;
+            background-color: var(--cream);
+        }
+
+        .amenities-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .amenities-title h2 {
+            font-size: 2.2rem;
+            color: var(--brick);
+            margin-bottom: 0.5rem;
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            /* Two rows of five */
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .amenity-item {
+            padding: 2rem 1rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .amenity-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(176, 94, 60, 0.1);
+            border-color: var(--gold);
+        }
+
+        .amenity-icon {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 1rem;
+            /* This creates a soft gradient look for the emojis */
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .amenity-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            letter-spacing: 0.5px;
+        }
+
+        .amenity-item p {
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 5px;
+        }
+
+
+        @media (max-width: 1200px) {
+            .amenities-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            /* 3-3-3-1 */
+        }
+
+        @media (max-width: 768px) {
+            .amenities-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* 5 rows of two */
+        }
+
+        @media (max-width: 480px) {
+            .amenities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Vertical stack */
+        }
+
         /* --- GALLERY SECTION --- */
-        .gallery { 
-            padding: 4rem 0;  
-            text-align: center; 
-            overflow: hidden; /* Prevents unwanted side-scroll on the main page */
+        .gallery {
+            padding: 4rem 0;
+            text-align: center;
+            overflow: hidden;
+            /* Prevents unwanted side-scroll on the main page */
         }
-        
-        .gallery-title { 
-            text-align: center; 
-            margin-bottom: 3rem; 
-            padding: 0 1rem; 
+
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
         }
-        
-        .gallery-title h2 { 
-            font-size: 2.2rem; 
-            color: var(--brick); 
+
+        .gallery-title h2 {
+            font-size: 2.2rem;
+            color: var(--brick);
         }
-        
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
@@ -223,69 +347,165 @@
             margin-bottom: 3rem;
             transition: all 0.5s ease;
         }
-        
-        .img-box { 
-            position: relative; 
-            overflow: hidden; 
+
+        .img-box {
+            position: relative;
+            overflow: hidden;
             border-radius: 4px;
             opacity: 0;
             transition: opacity 1.5s ease;
         }
-        
-        .img-box.visible { opacity: 1; }
-        
+
+        .img-box.visible {
+            opacity: 1;
+        }
+
         .img-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 2s ease;
         }
-        
-        .img-box:hover img { transform: scale(1.05); }
-        
+
+        .img-box:hover img {
+            transform: scale(1.05);
+        }
+
         /* Desktop Grid Positioning */
-        .item-1 { grid-column: 1 / 4; grid-row: 1 / 2; }
-        .item-2 { grid-column: 4 / 7; grid-row: 1 / 2; }
-        .item-3 { grid-column: 1 / 3; grid-row: 2 / 3; }
-        .item-4 { grid-column: 3 / 5; grid-row: 2 / 3; }
-        .item-5 { grid-column: 5 / 7; grid-row: 2 / 3; }
-        
+        .item-1 {
+            grid-column: 1 / 4;
+            grid-row: 1 / 2;
+        }
+
+        .item-2 {
+            grid-column: 4 / 7;
+            grid-row: 1 / 2;
+        }
+
+        .item-3 {
+            grid-column: 1 / 3;
+            grid-row: 2 / 3;
+        }
+
+        .item-4 {
+            grid-column: 3 / 5;
+            grid-row: 2 / 3;
+        }
+
+        .item-5 {
+            grid-column: 5 / 7;
+            grid-row: 2 / 3;
+        }
+
         /* --- MOBILE SCROLL LAYOUT --- */
         @media (max-width: 768px) {
+
             .gallery-grid {
-                display: flex; /* Switch from grid to flex for scrolling */
-                overflow-x: auto; /* Enable horizontal scroll */
-                scroll-snap-type: x mandatory; /* Makes images "snap" into place */
-                padding: 0 20px 20px 20px; /* Add breathing room at the bottom */
+                display: flex;
+                /* Switch from grid to flex for scrolling */
+                overflow-x: auto;
+                /* Enable horizontal scroll */
+                scroll-snap-type: x mandatory;
+                /* Makes images "snap" into place */
+                padding: 0 20px 20px 20px;
+                /* Add breathing room at the bottom */
                 gap: 20px;
                 grid-template-columns: none;
                 grid-template-rows: none;
-                -webkit-overflow-scrolling: touch; /* Smooth momentum scrolling for iOS */
+                -webkit-overflow-scrolling: touch;
+                /* Smooth momentum scrolling for iOS */
             }
-        
+
             /* Hide scrollbar for a cleaner look while swiping */
             .gallery-grid::-webkit-scrollbar {
                 display: none;
             }
 
             .hero h1 {
-               margin-top: 7rem;
+                margin-top: 7rem;
             }
-        
+
             .img-box {
-                flex: 0 0 80%; /* Each image takes up 80% of the screen width */
-                height: 400px; /* Taller images look better on mobile */
+                flex: 0 0 80%;
+                /* Each image takes up 80% of the screen width */
+                height: 400px;
+                /* Taller images look better on mobile */
                 scroll-snap-align: center;
-                opacity: 1; /* Ensure they are visible on mobile */
+                opacity: 1;
+                /* Ensure they are visible on mobile */
             }
-        
+
             /* Reset desktop-specific grid positions for mobile */
-            .item-1, .item-2, .item-3, .item-4, .item-5 {
+            .item-1,
+            .item-2,
+            .item-3,
+            .item-4,
+            .item-5 {
                 grid-column: auto;
                 grid-row: auto;
             }
         }
-        
+
+        /* --- PROPERTY SUMMARY & RULES --- */
+        .property-details {
+            padding: 6rem 0;
+            background-color: white;
+        }
+
+        .details-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .detail-group h3 {
+            font-size: 1.8rem;
+            color: var(--brick);
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--stone);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .summary-list,
+        .rules-list {
+            list-style: none;
+        }
+
+        .summary-list li,
+        .rules-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-weight: 500;
+        }
+
+        .summary-list li span:first-child,
+        .rules-list li span:first-child {
+            color: #777;
+            font-weight: 400;
+        }
+
+        .summary-list li span:last-child,
+        .rules-list li span:last-child {
+            color: var(--charcoal);
+            text-align: right;
+        }
+
+        .highlight-text {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .details-wrapper {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
         /* --- REVIEWS SECTION (NEW) --- */
         .reviews {
             padding: 4rem 0;
@@ -315,8 +535,8 @@
             background: white;
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -343,11 +563,11 @@
             gap: 8px;
         }
 
-        .platform-icon{
+        .platform-icon {
             font-size: 1.2rem;
         }
 
-        .platform-icon img{
+        .platform-icon img {
             height: 16px;
             width: auto;
         }
@@ -382,8 +602,10 @@
             filter: grayscale(1) contrast(0.95);
             transition: filter 0.5s;
         }
-        
-        .map-container iframe:hover { filter: grayscale(0); }
+
+        .map-container iframe:hover {
+            filter: grayscale(0);
+        }
 
         .contact-info {
             background-color: var(--charcoal);
@@ -395,8 +617,11 @@
             align-items: flex-start;
         }
 
-        .contact-info h2 { color: var(--cream); margin-bottom: 2rem; }
-        
+        .contact-info h2 {
+            color: var(--cream);
+            margin-bottom: 2rem;
+        }
+
         .contact-item {
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
@@ -411,7 +636,9 @@
             width: auto;
         }
 
-        .contact-item:hover { color: var(--brick); }
+        .contact-item:hover {
+            color: var(--brick);
+        }
 
         /* --- FOOTER --- */
         footer {
@@ -425,32 +652,57 @@
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .reviews h2 {font-size: 1.8rem; }
-            .intro h2 {font-size: 1.8rem; }
-            .gallery-title h2 { font-size: 1.8rem; }
-            .contact-section { grid-template-columns: 1fr; }
-            .contact-info { padding: 3rem 1.5rem; }
-            .logo-container img { height: 90px; }
-            .review-grid { grid-template-columns: 1fr; }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .reviews h2 {
+                font-size: 1.8rem;
+            }
+
+            .intro h2 {
+                font-size: 1.8rem;
+            }
+
+            .gallery-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                padding: 3rem 1.5rem;
+            }
+
+            .logo-container img {
+                height: 90px;
+            }
+
+            .review-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header>
         <div class="logo-container fade-up">
-            <img src="Tamarind.svg" alt="Tamarind Farm Stay"> 
+            <img src="Tamarind.svg" alt="Tamarind Farm Stay">
         </div>
     </header>
 
     <section class="hero">
         <div class="container fade-up">
             <h1>Where the world slows down.</h1>
-            <p>A quiet corner of Vilappilsala. Birds speak louder than traffic, and life gently reminds you of what really matters.</p>
+            <p>A quiet corner of Vilappilsala. Birds speak louder than traffic, and life gently reminds you of what
+                really matters.</p>
             <br>
-            <a href="https://wa.me/message/WRMYBZ57VSD4K1" target="_blank" class="cta-btn">Chat on WhatsApp</a>
-            <a href="https://airbnb.co.in/h/underthetamarind" target="_blank" class="cta-btn">Book on Airbnb</a>
+            <a href="https://wa.me/message/WRMYBZ57VSD4K1" target="_blank" class="cta-btn">Chat on Whatsapp</a>
+            <a href="https://airbnb.co.in/h/underthetamarind" target="_blank" class="cta-btn">Book Your Retreat</a>
         </div>
     </section>
 
@@ -460,10 +712,13 @@
                 <h2>Honest Architecture</h2>
                 <div class="separator"></div>
                 <p>
-                    Set on a peaceful 32-cent plantation, Tamarind is an architectural 3 BHK farmhouse designed to blend into nature, not disturb it.
+                    Set on a peaceful 32-cent plantation, Tamarind is an architectural 3 BHK farmhouse designed to blend
+                    into nature, not disturb it.
                 </p>
                 <p>
-                    Soft light flows through brick walls, breezes pass through every room, and every window frames a little moment of green. It’s a home that doesn’t try to impress; it simply invites you to feel at ease.
+                    Soft light flows through brick walls, breezes pass through every room, and every window frames a
+                    little moment of green. It’s a home that doesn’t try to impress; it simply invites you to feel at
+                    ease.
                 </p>
             </div>
         </div>
@@ -473,15 +728,18 @@
         <div class="container grid">
             <div class="feature-card fade-up">
                 <h3>The Garden</h3>
-                <p>Step outside to fruit trees and the quiet hum of the hills. If the season is right, pick a mango, banana, or jackfruit straight from the garden.</p>
+                <p>Step outside to fruit trees and the quiet hum of the hills. If the season is right, pick a mango,
+                    banana, or jackfruit straight from the garden.</p>
             </div>
             <div class="feature-card fade-up">
                 <h3>The Indoor pool</h3>
-                <p>A natural stone pool and waterfall tucked inside the house. Floating here, under the reflection of brick arches, is the ultimate way to rediscover stillness.</p>
+                <p>A natural stone pool and waterfall tucked inside the house. Floating here, under the reflection of
+                    brick arches, is the ultimate way to rediscover stillness.</p>
             </div>
             <div class="feature-card fade-up">
                 <h3>The Space</h3>
-                <p>Open spaces for yoga, meditation, journaling, or simply breathing deeply. Evenings bring cool breezes and a sky filled with stars.</p>
+                <p>Open spaces for yoga, meditation, journaling, or simply breathing deeply. Evenings bring cool breezes
+                    and a sky filled with stars.</p>
             </div>
         </div>
     </section>
@@ -498,7 +756,130 @@
             <div class="img-box item-4 fade-up"><img src="stairs.jpg" alt="Quiet Corner"></div>
             <div class="img-box item-5 fade-up"><img src="farm.jpeg" alt="Hills"></div>
         </div>
-        <a href="https://airbnb.co.in/h/underthetamarind" target="_blank" style="text-decoration: underline; color: var(--brick); font-weight: 600;">See more photos on Airbnb &rarr;</a>
+        <a href="https://airbnb.co.in/h/underthetamarind" target="_blank"
+            style="text-decoration: underline; color: var(--brick); font-weight: 600;">See more photos on Airbnb
+            &rarr;</a>
+    </section>
+
+    <section class="amenities" id="amenities">
+        <div class="container fade-up">
+            <div class="amenities-title">
+                <h2>Thoughtful Touches</h2>
+                <p>A home designed for slow living and complete comfort.</p>
+            </div>
+
+            <div class="amenities-grid">
+                <div class="amenity-item">
+                    <span class="amenity-icon">🛌</span>
+                    <h4>Restful Living</h4>
+                    <p>Cotton linens, extra pillows, and blankets for cool nights.</p>
+                </div>
+
+                <div class="amenity-item">
+                    <span class="amenity-icon">🛁</span>
+                    <h4>Essentials</h4>
+                    <p>Hot water, shampoo, body soap, and fresh towels provided.</p>
+                </div>
+
+                <div class="amenity-item">
+                    <span class="amenity-icon">🌳</span>
+                    <h4>Private Garden</h4>
+                    <p>Fully fenced 32-cent plantation with an outdoor dining area.</p>
+                </div>
+
+                <div class="amenity-item">
+                    <span class="amenity-icon">📚</span>
+                    <h4>Slow Afternoons</h4>
+                    <p>A collection of books, reading material, and board games.</p>
+                </div>
+
+                <div class="amenity-item">
+                    <span class="amenity-icon">🍳</span>
+                    <h4>Farmhouse Kitchen</h4>
+                    <p>Gas cooker, Haier fridge, kettle, and all essential cookware.</p>
+                </div>
+
+                <div class="amenity-item">
+                    <span class="amenity-icon">📶</span>
+                    <h4>Stay Connected</h4>
+                    <p>Dedicated workspace with high-speed Wifi and power access.</p>
+                </div>
+
+                <div class="amenity-item">
+                    <span class="amenity-icon">👗</span>
+                    <h4>Convenience</h4>
+                    <p>Iron, hair dryer, and hangers for a seamless stay.</p>
+                </div>
+
+                <div class="amenity-item">
+                    <span class="amenity-icon">🍷</span>
+                    <h4>Dining</h4>
+                    <p>Wine glasses, dinnerware, and a dedicated patio space.</p>
+                </div>
+                <div class="amenity-item">
+                    <span class="amenity-icon">🛡️</span>
+                    <h4>Safe & Private</h4>
+                    <p>Private entrance and a fully fenced garden for total peace of mind.</p>
+                </div>
+
+                <div class="amenity-item">
+                    <span class="amenity-icon">🏠</span>
+                    <h4>Extended Retreats</h4>
+                    <p>Equipped with laundry essentials like a drying rack and iron for long-term stays.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="property-details">
+        <div class="container fade-up">
+            <p style="text-align: center; color: #777; margin-bottom: 3rem; font-weight: 500; font-style: italic;">
+                Great for short stays, weekend trips, workations, and longer slow breaks in Trivandrum.
+            </p>
+            <div class="details-wrapper">
+
+                <div class="detail-group">
+                    <h3>Property Summary</h3>
+                    <ul class="summary-list">
+                        <li><span>Stay Type</span> <span>Private 3-Bedroom Farm Villa</span></li>
+                        <li><span>Suitability</span> <span class="highlight-text">6-8 Guests</span></li>
+                        <li><span>Sleeps</span> <span>8-10 Guests Max</span></li>
+                        <li><span>Bathrooms</span> <span>3 Full Baths</span></li>
+                        <li><span>Outdoor Spaces</span> <span>Terrace + Balcony + Garden Edge</span></li>
+                        <li><span>Pool</span> <span>Indoor Dip Pool</span></li>
+                        <li><span>Parking</span> <span>Available On-Site</span></li>
+                    </ul>
+                </div>
+
+                <div class="detail-group">
+                    <h3>House Rules</h3>
+                    <ul class="rules-list">
+                        <li><span>Check-in</span> <span>After 2:00 PM</span></li>
+                        <li><span>Checkout</span> <span>By 11:00 AM</span></li>
+                        <li><span>Self Check-in</span> <span>Available ( keys placed in number lock )</span></li>
+                        <li><span>Smoking / Drinking</span> <span>Allowed ( not in bedrooms )</span></li>
+                        <li><span>Pets</span> <span>Allowed with Prior Notice</span></li>
+                    </ul>
+                    <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #888; font-style: italic;">
+                        *We kindly ask our guests to respect the quiet nature of Vilappilsala.
+                    </p>
+                    <div class="pricing-note"
+                        style="margin-top: 2rem; padding: 1.5rem; background: var(--stone); border-radius: 8px; text-align: center;">
+                        <p style="font-weight: 600; color: var(--brick); margin-bottom: 5px;">Flexible Seasonal Rates
+                        </p>
+                        <p style="font-size: 0.9rem; color: var(--charcoal);">
+                            Rates vary based on season and length of stay.
+                            <br>Starting from <strong>₹5000</strong> per night.
+                        </p>
+                        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">
+                            *Check your specific dates on Airbnb for accurate real-time pricing.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
     </section>
 
     <section class="reviews">
@@ -511,16 +892,17 @@
                     <div class="stars">★★★★★</div>
                     <p class="review-text">"Would definitely recommend to anyone looking for a relaxing getaway."</p>
                     <div class="reviewer">
-                        <span class="platform-icon"><img src="airbnb.png"/></span> Arjun, Airbnb
-                        
+                        <span class="platform-icon"><img src="airbnb.png" /></span> Arjun, Airbnb
+
                     </div>
                 </div>
 
                 <div class="review-card">
                     <div class="stars">★★★★★</div>
-                    <p class="review-text">"Absolutely the best weekend getaway! A perfect escape from all the chaos! Peaceful, calming, and beautifully surrounded by nature. "</p>
+                    <p class="review-text">"Absolutely the best weekend getaway! A perfect escape from all the chaos!
+                        Peaceful, calming, and beautifully surrounded by nature. "</p>
                     <div class="reviewer">
-                        <span class="platform-icon"><img src="google.png"/></span> Diya, Google Review
+                        <span class="platform-icon"><img src="google.png" /></span> Diya, Google Review
                     </div>
                 </div>
 
@@ -528,20 +910,23 @@
                     <div class="stars">★★★★★</div>
                     <p class="review-text">"A Perfect Staycation with an Exceptional Host"</p>
                     <div class="reviewer">
-                        <span class="platform-icon"><img src="airbnb.png"/></span> Sanju, Airbnb
+                        <span class="platform-icon"><img src="airbnb.png" /></span> Sanju, Airbnb
                     </div>
                 </div>
             </div>
-            
+
             <br><br>
-            <a href="https://airbnb.co.in/h/underthetamarind" target="_blank" style="text-decoration: underline; color: var(--brick); font-weight: 600;">Read all reviews on Airbnb &rarr;</a>
+            <a href="https://airbnb.co.in/h/underthetamarind" target="_blank"
+                style="text-decoration: underline; color: var(--brick); font-weight: 600;">Read all reviews on Airbnb
+                &rarr;</a>
         </div>
     </section>
 
     <section class="hosts">
         <div class="container fade-up">
             <blockquote>
-                "This is not a place for rushing. It’s a place for listening. To the birds. To the wind. To your own thoughts."
+                "This is not a place for rushing. It’s a place for listening. To the birds. To the wind. To your own
+                thoughts."
             </blockquote>
             <p style="margin-top: 1rem; font-weight: 600;">— Indu & Teja, Hosts</p>
             <!-- <br><br>
@@ -553,24 +938,28 @@
 
     <section class="contact-section">
         <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247871.85766078305!2d76.85009069245422!3d8.571772185978963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05b10059de0af3%3A0xc6f808de20ed2785!2sTamarind!5e0!3m2!1sen!2sin!4v1766074586486!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247871.85766078305!2d76.85009069245422!3d8.571772185978963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05b10059de0af3%3A0xc6f808de20ed2785!2sTamarind!5e0!3m2!1sen!2sin!4v1766074586486!5m2!1sen!2sin"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="contact-info">
             <h2>Get in touch</h2>
-            
+
             <a href="tel:+917994131210" class="contact-item">
                 <span>📞</span> +91 7994131210
             </a>
-            
+
             <a href="mailto:tamarindbnb@gmail.com" class="contact-item">
                 <span>✉️</span> tamarindbnb@gmail.com
             </a>
 
             <a href="https://airbnb.co.in/h/underthetamarind" target="_blank" class="contact-item">
-                <span><img src="airbnb.png"/></span> View on Airbnb
+                <span><img src="airbnb.png" /></span> View on Airbnb
             </a>
-            
-            <a href="https://www.google.com/maps/place/Tamarind/@8.5717722,76.8500907,11z/data=!4m11!1m2!10m1!1e4!3m7!1s0x3b05b10059de0af3:0xc6f808de20ed2785!8m2!3d8.5276344!4d77.0334495!9m1!1b1!16s%2Fg%2F11yrxpy61s?authuser=6&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" class="contact-item" target="_blank">
+
+            <a href="https://www.google.com/maps/place/Tamarind/@8.5717722,76.8500907,11z/data=!4m11!1m2!10m1!1e4!3m7!1s0x3b05b10059de0af3:0xc6f808de20ed2785!8m2!3d8.5276344!4d77.0334495!9m1!1b1!16s%2Fg%2F11yrxpy61s?authuser=6&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+                class="contact-item" target="_blank">
                 <span>⭐</span> Review us on Google
             </a>
 
@@ -603,4 +992,5 @@
     </script>
 
 </body>
+
 </html>
