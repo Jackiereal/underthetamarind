@@ -9,6 +9,7 @@
         content="Great for short stays, weekend trips, workations, and longer slow breaks in Trivandrum. Experience our 5-star Laurie Baker inspired farmhouse in Vilappilsala.">
     <title>Tamarind | Calm nature blended farm villa in Triavndrum</title>
 
+    <link rel="preload" as="image" href="hero-mobile.webp" imagesrcset="hero-mobile.webp 600w" imagesizes="100vw">
     <link rel="icon" type="image/svg+xml" href="Tamarind.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,25 +119,50 @@
         }
 
         /* --- HERO SECTION --- */
-        .hero {
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            /* Update this URL with a photo of your actual house/garden */
-            background: linear-gradient(rgba(250, 249, 246, 0.4), rgba(250, 249, 246, 0.7)),
-                url('hero.webp');
-            background-size: cover;
-            background-position: center;
-        }
+.hero {
+    position: relative;
+    height: 100vh; /* Or your preferred height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+}
 
-        .hero a {
+.hero-bg img {
+    position: absolute;
+    /* background: linear-gradient(rgba(250, 249, 246, 0.4), rgba(250, 249, 246, 0.7)); */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This keeps the image from stretching */
+    z-index: -1; /* Puts image behind the text */
+}
+
+/* Add a dark overlay so text is readable (Fixes Contrast Ratio) */
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   background: linear-gradient(rgba(250, 249, 246, 0.4), rgba(250, 249, 246, 0.7));
+    z-index: 0;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1; /* Ensures text is above the overlay */
+    text-align: center;
+}
+
+.hero a {
             margin: 0.5rem 1rem;
         }
 
-        .hero h1 {
+ .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
             line-height: 1.2;
@@ -822,16 +848,25 @@
         </div>
     </header>
     <main id="main-content">
-    <section class="hero">
-        <div class="container fade-up">
-            <h1>Where the world slows down.</h1>
-            <p>A quiet corner of Vilappilsala. Birds speak louder than traffic, and life gently reminds you of what
-                really matters.</p>
-            <br>
+   <section class="hero">
+    <picture class="hero-bg">
+        <source media="(max-width: 600px)" srcset="hero-mobile.webp">
+        <img src="hero-desktop.webp" 
+             alt="The peaceful garden at Under the Tamarind showing the heritage farmstay" 
+             fetchpriority="high" 
+             loading="eager">
+    </picture>
+
+    <div class="container fade-up">
+        <h1>Where the world slows down.</h1>
+        <p>A quiet corner of Vilappilsala. Birds speak louder than traffic, and life gently reminds you of what really matters.</p>
+        <br>
+        <div class="cta-container">
             <a href="https://wa.me/message/WRMYBZ57VSD4K1" target="_blank" class="cta-btn">Chat on Whatsapp</a>
             <a href="https://airbnb.co.in/h/underthetamarind" target="_blank" class="cta-btn">Book on Airbnb</a>
         </div>
-    </section>
+    </div>
+</section>
 
     <section class="intro">
         <div class="container fade-up">
