@@ -838,6 +838,51 @@
     border-radius: 100%;
 }
 
+/* Masonry Logic */
+.masonry-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 200px; /* Base row height */
+    grid-gap: 15px;
+    grid-auto-flow: dense; /* Fills in the gaps */
+}
+
+.masonry-item {
+    overflow: hidden;
+    border-radius: 12px;
+    background: #ddd;
+}
+
+.masonry-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.masonry-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Specific shapes for the "Masonry" look */
+.item-tall {
+    grid-row: span 2; /* Takes up two rows */
+}
+
+.item-wide {
+    grid-column: span 2; /* Takes up two columns */
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    .item-wide {
+        grid-column: span 1;
+    }
+    .masonry-wrapper {
+        grid-auto-rows: 250px;
+    }
+}
+
     </style>
 </head>
 
@@ -1057,7 +1102,7 @@
                     <li style="margin-bottom: 10px;">☕ <strong>Al Fresco Dining:</strong> Morning tea enjoyed under the Tamarind shade.</li>
                     <li style="margin-bottom: 10px;">🥬 <strong>Organic Sourcing:</strong> Fruits freshly plucked from our garden when available.</li>
                 </ul>
-                <p style="font-size: 0.9rem;  color: var(--brick); font-style: italic;">*Please request food 24 hours in advance to help us source the freshest ingredients.</p>
+                <p style="font-size: 0.9rem; color: var(--brick); font-style: italic;">*Please request food 24 hours in advance to help us source the freshest ingredients.</p>
             </div>
 
             <div class="dining-image" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
@@ -1193,6 +1238,40 @@
     </div>
     </section>
 
+<section class="guest-gallery" style="padding: 5rem 0; background-color: #fff;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h2 style="font-family: 'Quicksand', sans-serif; color: var(--brick); font-weight: 600;">Living under the Tamarind</h2>
+            <p style="color: #666;">Candid glimpses shared by our guests.</p>
+        </div>
+
+        <div class="masonry-wrapper">
+            <div class="masonry-item item-tall">
+                <img src="guest-1.jpg" alt="Guest enjoying the indoor dip pool" loading="lazy">
+            </div>
+            <div class="masonry-item">
+                <img src="guest-4.jpg" alt="Reading under the tamarind tree" loading="lazy">
+            </div>
+            <div class="masonry-item">
+                <img src="guest-2.jpg" alt="Morning breakfast spread" loading="lazy">
+            </div>
+            <div class="masonry-item item-wide">
+                <img src="guest-6.jpg" alt="Relaxing in the garden" loading="lazy">
+            </div>
+            
+            <div class="masonry-item item-tall">
+                <img src="guest-5.jpg" alt="Sunset at Sasthampara" loading="lazy">
+            </div>
+        </div>
+
+        <div style="margin-top: 4rem; padding: 2rem; background: #fff; border-radius: 15px; text-align: center; border: 1px solid #eee;">
+            <h4 style="color: var(--brick);">Planning a small gathering?</h4>
+            <p style="max-width: 600px; margin: 10px auto;">From intimate get togethers to art workshops, this space provides the perfect quiet backdrop for your next event.</p>
+            <a href="https://wa.me/7994131210" style="display: inline-block; margin-top: 15px; color: var(--brick); font-weight: bold; text-decoration: none; border-bottom: 2px solid var(--brick);" target="_blank">Enquire about Events →</a>
+        </div>
+    </div>
+</section>
 
 <section class="reviews">
         <div class="container fade-up">
