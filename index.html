@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="f698H4xYCXOoKUJElxFEXmnA6ZuqmY3t3gHjORDhSkk" />
@@ -11,8 +13,7 @@
 
     <link rel="preload" as="image" href="hero-mobile.webp" imagesrcset="hero-mobile.webp 600w" imagesizes="100vw">
     <link rel="icon" type="image/svg+xml" href="Tamarind.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
@@ -896,7 +897,7 @@
     <main id="main-content">
    <section class="hero">
     <picture class="hero-bg">
-        <source media="(max-width: 600px)" srcset="hero-mobile.webp">
+        <source media="(max-width: 600px)" srcset="hero-mobile.webp" fetchpriority="high" loading="eager">
         <img src="hero-desktop.webp" 
              alt="The peaceful garden at Under the Tamarind showing the heritage farmstay" 
              fetchpriority="high" 
