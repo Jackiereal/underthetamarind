@@ -204,7 +204,8 @@
       ],
       "sameAs": [
         "https://airbnb.co.in/h/underthetamarind",
-        "https://www.google.com/maps/place/Tamarind/"
+        "https://www.google.com/maps/place/Tamarind/",
+        "https://www.instagram.com/underthetamarind/"
       ]
     }
     </script>
@@ -1101,6 +1102,10 @@
             width: auto;
         }
 
+        .contact-item svg {
+            display: block;
+        }
+
         .contact-item:hover {
             color: var(--brick);
         }
@@ -1857,6 +1862,10 @@
                 <span>✉️</span> tamarindbnb@gmail.com
             </a>
 
+            <a href="https://www.instagram.com/underthetamarind/" target="_blank" rel="noopener" class="contact-item" aria-label="Follow Tamarind on Instagram">
+                <span aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></span> Follow @underthetamarind
+            </a>
+
             <a href="https://airbnb.co.in/h/underthetamarind" target="_blank" rel="noopener" class="contact-item" aria-label="View Tamarind listing on Airbnb">
                 <span><img src="airbnb.png" alt="Airbnb logo" width="24" height="24"/></span> View on Airbnb
             </a>
@@ -1916,6 +1925,7 @@
                 if (!href) return null;
                 if (/^https?:\/\/(api\.)?whatsapp\.com|^https?:\/\/wa\.me/i.test(href)) return 'whatsapp';
                 if (/^https?:\/\/(www\.)?airbnb\./i.test(href)) return 'airbnb';
+                if (/^https?:\/\/(www\.)?instagram\.com/i.test(href)) return 'instagram';
                 if (/^tel:/i.test(href)) return 'phone';
                 if (/^mailto:/i.test(href)) return 'email';
                 if (/^https?:\/\/(www\.)?google\.[^/]+\/maps/i.test(href)) return 'google_maps';
