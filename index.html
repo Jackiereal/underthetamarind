@@ -209,6 +209,113 @@
     }
     </script>
 
+    <!-- Structured Data: FAQPage — used by AI search engines (ChatGPT, Perplexity, Gemini) and Bing -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": "https://underthetamarind.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is the indoor pool an actual swimming pool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Tamarind has a small indoor stone dip pool with a waterfall, designed for cooling off and soaking rather than swimming laps. Think of it as a deep, beautifully built plunge pool — perfect for floating with a book, not for serious swimming. The pool is private to your group during your stay."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the whole villa private, or is it a shared homestay?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The entire 3-bedroom farmhouse is yours — bedrooms, kitchen, indoor dip pool, garden, terrace and balcony. We don't host other guests on the property during your stay. It comfortably suits 6–8 guests, with a maximum of 10."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are pets allowed at Tamarind?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Tamarind is a pet-friendly farm stay, with prior notice. Please let us know about your pet when you book so we can prepare the space and share a few simple house rules."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you serve food, or is it self-catering?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both. The kitchen is fully equipped if you'd like to cook. We also serve authentic, home-cooked Kerala meals on request — please ask at least 24 hours in advance so we can source the freshest ingredients."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Tamarind a good place for a workation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Tamarind has a dedicated workspace, high-speed Wi-Fi and reliable power, plus the quiet of a 32-cent plantation. Many guests come for longer slow-work weeks, with Trivandrum city only 25 minutes away."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How far is Tamarind from Trivandrum airport, Kovalam beach and Ponmudi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trivandrum International Airport is about 40 minutes away. Kovalam Beach is around 45 minutes; the misty hills of Ponmudi are roughly 1.5 hours. Sasthampara and Kadumbu Para sunrise viewpoints are a 5-minute drive, and Neyyar Dam is 15 minutes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is parking available on-site?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — free, private, on-site parking inside the property. The driveway comfortably fits two cars; let us know if you're arriving with more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is self check-in available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Check-in is from 2:00 PM and checkout by 11:00 AM. Keys are placed in a number lock for self check-in, so late arrivals are easy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the property safe and family-friendly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Tamarind is a private, fully fenced 32-cent plantation with a private entrance and outdoor security cameras around the perimeter (none inside the house). Vilappilsala is a quiet residential village; families with children and elderly guests stay with us regularly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best season to visit Tamarind?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "October to March is cool, dry and ideal for outdoor sit-outs. June to September is monsoon — the brick walls, filler slabs and indoor pool feel especially atmospheric in the rain, and the garden is at its greenest. April–May is hotter but quieter, and mango / jackfruit season in the garden."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I host a small event, photoshoot or workshop at Tamarind?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Often, yes. We host intimate gatherings, art workshops and small photoshoots when the property feels right for it. Message us on WhatsApp with the date and what you have in mind, and we'll let you know."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I book Tamarind, and what are the rates?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rates start from ₹6,500 per night and vary by season and length of stay. Live pricing for specific dates is on our Airbnb listing. For longer stays, multi-night discounts or direct enquiries, message us on WhatsApp — we usually reply within the hour."
+          }
+        }
+      ]
+    }
+    </script>
+
     <style>
         /* --- DESIGN TOKENS --- */
         :root {
@@ -833,6 +940,103 @@
     margin-bottom: 0.5rem;
 }
 
+/* --- FAQ SECTION --- */
+.faq-section {
+    padding: 5rem 0;
+    background-color: var(--cream);
+}
+
+.faq-section .container {
+    max-width: 820px;
+}
+
+.faq-eyebrow {
+    text-transform: uppercase;
+    color: var(--brick);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.faq-section h2 {
+    text-align: center;
+    color: var(--brick);
+    font-weight: 600;
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+}
+
+.faq-list {
+    border-top: 1px solid #e5dfd2;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e5dfd2;
+    padding: 0;
+}
+
+.faq-item > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 1.25rem 0;
+    font-weight: 600;
+    color: var(--charcoal);
+    font-size: 1.05rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transition: color 0.2s ease;
+}
+
+.faq-item > summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item > summary::after {
+    content: "+";
+    color: var(--brick);
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+}
+
+.faq-item[open] > summary::after {
+    content: "–";
+}
+
+.faq-item > summary:hover {
+    color: var(--brick);
+}
+
+.faq-answer {
+    padding: 0 0 1.5rem 0;
+    color: #4a4a4a;
+    line-height: 1.8;
+    font-size: 1rem;
+    max-width: 720px;
+}
+
+.faq-answer a {
+    color: var(--brick);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .faq-section h2 {
+        font-size: 1.7rem;
+    }
+    .faq-item > summary {
+        font-size: 0.98rem;
+        padding: 1rem 0;
+    }
+}
+
         /* --- HOSTS SECTION --- */
         .hosts {
             padding: 6rem 0;
@@ -1355,7 +1559,7 @@
                         </p>
                         <p style="font-size: 0.9rem; color: var(--charcoal);">
                             Rates vary based on season and length of stay.
-                            <br>Starting from <strong>₹5,500</strong> per night.
+                            <br>Starting from <strong>₹6,500</strong> per night.
                         </p>
                         <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">
                             *Check your specific dates on Airbnb for accurate real-time pricing.
@@ -1478,6 +1682,99 @@
         </div>
     </div>
 </section>
+
+    <section class="faq-section" id="faq" aria-labelledby="faq-heading">
+        <div class="container">
+            <p class="faq-eyebrow">Good to know</p>
+            <h2 id="faq-heading">Frequently asked questions</h2>
+
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>Is the indoor pool an actual swimming pool?</summary>
+                    <div class="faq-answer">
+                        <p>No, and we like to be upfront about this. Tamarind has a small <strong>indoor stone dip pool with a waterfall</strong>, designed for cooling off and soaking rather than swimming laps. Think of it as a deep, beautifully built plunge pool — perfect for floating with a book, not for serious swimming. The pool is private to your group during your stay.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Is the whole villa private, or is it a shared homestay?</summary>
+                    <div class="faq-answer">
+                        <p>The entire 3-bedroom farmhouse is yours — bedrooms, kitchen, indoor dip pool, garden, terrace and balcony. We don't host other guests on the property during your stay. It comfortably suits 6–8 guests, with a maximum of 10.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Are pets allowed?</summary>
+                    <div class="faq-answer">
+                        <p>Yes — we're a pet-friendly stay, with prior notice. Please let us know about your pet when you book so we can prepare the space and share a few simple house rules for their comfort and ours.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Do you serve food, or is it self-catering?</summary>
+                    <div class="faq-answer">
+                        <p>Both. The kitchen is fully equipped if you'd like to cook. We also serve <strong>authentic, home-cooked Kerala meals on request</strong> — please ask at least 24 hours in advance so we can source the freshest ingredients from nearby. Morning tea on the patio under the tamarind tree is a Tamarind tradition.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Is Tamarind a good place for a workation?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. We have a <strong>dedicated workspace, high-speed Wi-Fi and reliable power</strong>, plus the quiet of a 32-cent plantation. Many guests come for longer "slow work" weeks — open spaces for calls, a balcony for breaks, and Trivandrum city only 25 minutes away when you need it.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>How far is Tamarind from the airport, beach and hill stations?</summary>
+                    <div class="faq-answer">
+                        <p>Trivandrum International Airport is about <strong>40 minutes</strong> away. <strong>Kovalam Beach</strong> is around 45 minutes; the misty hills of <strong>Ponmudi</strong> are roughly 1.5 hours. Closer to home, the <strong>Sasthampara</strong> and <strong>Kadumbu Para</strong> sunrise viewpoints are a 5-minute drive, and <strong>Neyyar Dam</strong> is 15 minutes.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Is parking available on-site?</summary>
+                    <div class="faq-answer">
+                        <p>Yes — free, private, on-site parking inside the property. The driveway can comfortably fit two cars; let us know if you're arriving with more.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Is self check-in available?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. Check-in is from <strong>2:00 PM</strong> and checkout by <strong>11:00 AM</strong>. Keys are placed in a number lock for self check-in, so late arrivals are easy. We're always reachable on WhatsApp if you need help finding the place.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Is the property safe and family-friendly?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. Tamarind is a private, fully fenced 32-cent plantation with a private entrance and outdoor security cameras around the perimeter (none inside the house). Vilappilsala is a quiet residential village; families with children and elderly guests stay with us regularly.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What's the best season to visit?</summary>
+                    <div class="faq-answer">
+                        <p>Honestly, every season has its mood. <strong>October to March</strong> is cool, dry and ideal for outdoor sit-outs. <strong>June to September</strong> is monsoon — the brick walls, filler slabs and indoor pool feel especially atmospheric in the rain, and the garden is at its greenest. <strong>April–May</strong> is hotter but quieter, and mango / jackfruit season in the garden.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can I host a small event, photoshoot or workshop here?</summary>
+                    <div class="faq-answer">
+                        <p>Often, yes. We host intimate gatherings, art workshops and small photoshoots when the property feels right for it. Drop us a note on <a href="https://wa.me/7994131210" target="_blank" rel="noopener">WhatsApp</a> with the date and what you have in mind, and we'll let you know.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>How do I book? What are the rates?</summary>
+                    <div class="faq-answer">
+                        <p>Rates start from <strong>₹6,500 per night</strong> and vary by season and length of stay. The simplest way to see live pricing for your dates is on our <a href="https://airbnb.co.in/h/underthetamarind" target="_blank" rel="noopener">Airbnb listing</a>. For longer stays, multi-night discounts or a direct enquiry, message us on <a href="https://wa.me/message/WRMYBZ57VSD4K1" target="_blank" rel="noopener">WhatsApp</a> — we usually reply within the hour.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
 
 <section class="reviews">
         <div class="container fade-up">
