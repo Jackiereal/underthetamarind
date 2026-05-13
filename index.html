@@ -37,7 +37,7 @@
     <meta property="og:image" content="https://underthetamarind.com/hero-desktop.webp">
     <meta property="og:image:alt" content="Brick farmhouse and gardens at Tamarind, an eco-friendly farm stay in Vilappilsala near Trivandrum, Kerala">
     <meta property="og:image:width" content="1920">
-    <meta property="og:image:height" content="1080">
+    <meta property="og:image:height" content="1440">
     <meta property="og:locale" content="en_IN">
 
     <!-- Twitter Card -->
@@ -52,8 +52,10 @@
     <meta name="google-site-verification" content="f698H4xYCXOoKUJElxFEXmnA6ZuqmY3t3gHjORDhSkk" />
 
     <!-- Performance: responsive hero preload + font preconnects -->
-    <link rel="preload" as="image" href="hero-mobile.webp" media="(max-width: 600px)">
-    <link rel="preload" as="image" href="hero-desktop.webp" media="(min-width: 601px)">
+    <link rel="preload" as="image"
+          imagesrcset="hero-mobile.webp 640w, hero-960.webp 960w, hero-1280.webp 1280w, hero-desktop.webp 1920w, hero-2160.webp 2160w"
+          imagesizes="100vw"
+          fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
@@ -1064,13 +1066,19 @@
     <main id="main-content">
    <section class="hero" aria-label="Welcome to Tamarind Farm Stay">
     <picture class="hero-bg">
-        <source media="(max-width: 600px)" srcset="hero-mobile.webp">
-        <source media="(min-width: 601px)" srcset="hero-desktop.webp">
+        <source type="image/webp"
+                srcset="hero-mobile.webp 640w,
+                        hero-960.webp 960w,
+                        hero-1280.webp 1280w,
+                        hero-desktop.webp 1920w,
+                        hero-2160.webp 2160w"
+                sizes="100vw">
         <img src="hero-desktop.webp"
              alt="Brick farmhouse and tropical garden at Tamarind, a Laurie Baker–inspired farm stay in Vilappilsala near Trivandrum, Kerala"
              fetchpriority="high"
              loading="eager"
-             width="1920" height="1080">
+             decoding="async"
+             width="1920" height="1440">
     </picture>
 
     <div class="container fade-up">
