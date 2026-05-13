@@ -51,9 +51,9 @@
     <!-- Search Console -->
     <meta name="google-site-verification" content="f698H4xYCXOoKUJElxFEXmnA6ZuqmY3t3gHjORDhSkk" />
 
-    <!-- Performance: responsive hero preload + font preconnects -->
-    <link rel="preload" as="image"
-          imagesrcset="hero-mobile.webp 640w, hero-960.webp 960w, hero-1280.webp 1280w, hero-desktop.webp 1920w, hero-2160.webp 2160w"
+    <!-- Performance: responsive hero preload (AVIF first, modern browsers ≥97% support) + font preconnects -->
+    <link rel="preload" as="image" type="image/avif"
+          imagesrcset="hero-mobile.avif 640w, hero-960.avif 960w, hero-1280.avif 1280w, hero-desktop.avif 1920w, hero-2160.avif 2160w"
           imagesizes="100vw"
           fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1066,6 +1066,13 @@
     <main id="main-content">
    <section class="hero" aria-label="Welcome to Tamarind Farm Stay">
     <picture class="hero-bg">
+        <source type="image/avif"
+                srcset="hero-mobile.avif 640w,
+                        hero-960.avif 960w,
+                        hero-1280.avif 1280w,
+                        hero-desktop.avif 1920w,
+                        hero-2160.avif 2160w"
+                sizes="100vw">
         <source type="image/webp"
                 srcset="hero-mobile.webp 640w,
                         hero-960.webp 960w,
