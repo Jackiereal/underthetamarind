@@ -1895,6 +1895,66 @@
 
         const yearEl = document.getElementById('copyright-year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+        /* --- CTA conversion tracking -----------------------------------------
+           Fires two events on every booking-intent click:
+             1. gtag 'cta_click'   — generic event for GA4 reporting, with
+                cta_type (whatsapp | airbnb | phone | email | google_maps) and
+                cta_location (section id / class or 'sticky').
+             2. gtag 'conversion'  — Google Ads attribution, fired only when a
+                matching entry exists in AW_CONVERSIONS below. Add new
+                send_to labels here as you create conversions in Google Ads.
+        ------------------------------------------------------------------------ */
+        (function () {
+            var AW_CONVERSIONS = {
+                whatsapp: { send_to: 'AW-17935771722/SutrCNCvs6wcEMrQuOhC', value: 500.0, currency: 'INR' }
+                // airbnb: { send_to: 'AW-17935771722/<label>', value: 200.0, currency: 'INR' },
+                // phone:  { send_to: 'AW-17935771722/<label>', value: 700.0, currency: 'INR' }
+            };
+
+            function classify(href) {
+                if (!href) return null;
+                if (/^https?:\/\/(api\.)?whatsapp\.com|^https?:\/\/wa\.me/i.test(href)) return 'whatsapp';
+                if (/^https?:\/\/(www\.)?airbnb\./i.test(href)) return 'airbnb';
+                if (/^tel:/i.test(href)) return 'phone';
+                if (/^mailto:/i.test(href)) return 'email';
+                if (/^https?:\/\/(www\.)?google\.[^/]+\/maps/i.test(href)) return 'google_maps';
+                return null;
+            }
+
+            function locate(el) {
+                if (el.classList.contains('whatsapp-sticky') || el.classList.contains('airbnb-sticky')) return 'sticky';
+                var section = el.closest('section');
+                if (!section) return 'global';
+                if (section.id) return section.id;
+                var cls = (section.className || '').split(/\s+/)[0];
+                return cls || 'unknown';
+            }
+
+            document.addEventListener('click', function (e) {
+                var a = e.target && e.target.closest ? e.target.closest('a') : null;
+                if (!a) return;
+                var type = classify(a.getAttribute('href'));
+                if (!type) return;
+                if (typeof gtag !== 'function') return;
+
+                gtag('event', 'cta_click', {
+                    cta_type: type,
+                    cta_location: locate(a),
+                    transport_type: 'beacon'
+                });
+
+                var conv = AW_CONVERSIONS[type];
+                if (conv) {
+                    gtag('event', 'conversion', {
+                        send_to: conv.send_to,
+                        value: conv.value,
+                        currency: conv.currency,
+                        transport_type: 'beacon'
+                    });
+                }
+            }, true);
+        })();
     </script>
 <a href="https://wa.me/917994131210?text=Hi%20Tamarind!%20I'm%20interested%20in%20booking%20a%20stay.%20Could%20you%20help%20me%20with%20rates%20and%20availability?" 
    class="whatsapp-sticky" 
