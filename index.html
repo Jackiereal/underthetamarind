@@ -401,7 +401,7 @@
 
         /* --- HEADER & NAV --- */
         header {
-            padding: 1.5rem 0;
+            padding: 1rem 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -413,7 +413,7 @@
 
         .logo-container img {
             width: 240px;
-            height: 100px;
+            height: 90px;
             object-fit: cover;
             mix-blend-mode: multiply;
             /* Blends white bg into cream */
@@ -442,7 +442,7 @@
 }
 
 /* Add a dark overlay so text is readable (Fixes Contrast Ratio) */
-.hero::after {
+/* .hero::after {
     content: "";
     position: absolute;
     top: 0;
@@ -451,12 +451,93 @@
     height: 100%;
    background: linear-gradient(rgba(250, 249, 246, 0.4), rgba(250, 249, 246, 0.7));
     z-index: 0;
+} */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+background: linear-gradient(rgba(250, 249, 246, 0.4), rgba(250, 249, 246, 0.7));
+    padding: 8rem 0 5rem;
+}
+
+@media (max-width:768px){
+
+.hero{
+
+    min-height:auto;
+    padding-top:9rem;
+    padding-bottom:5rem;
+
+}
+
 }
 
 .hero .container {
     position: relative;
     z-index: 1; /* Ensures text is above the overlay */
     text-align: center;
+    width:100%;
+}
+
+@media (max-width:768px){
+
+.hero .container{
+    padding:0 10px;
+    max-width: 600px;
+
+}
+
+}
+
+.hero-trust{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    flex-wrap:nowrap;   /* <- important */
+
+    gap:8px;
+
+    white-space:nowrap;
+
+    overflow-x:auto;
+
+    -ms-overflow-style:none;
+    scrollbar-width:none;
+    margin-top: 1rem;
+    color: var(--charcoal);
+    font-size: 1.25rem;    
+}
+
+.hero-trust::-webkit-scrollbar{
+    display:none;
+}
+
+.trust-stat{
+    white-space:nowrap;
+    flex-shrink:0;
+}
+
+.trust-divider{
+    flex-shrink:0;
+}
+
+.hero-rating {
+     font-weight: 600;
+    text-shadow:
+                0 2px 8px rgba(0,0,0,.45),
+                0 0 2px rgba(0,0,0,.5);
+}
+
+@media (max-width:768px){
+    .trust-stat{
+        font-size: 1rem;
+    }
 }
 
 .hero a {
@@ -475,7 +556,7 @@
             display: inline;
             font-size: 1.2rem;
             max-width: 600px;
-            margin: 0 auto 2rem auto;
+            margin: 0 auto 1.5rem auto;
             font-weight: 600;
             color: var(--cream);
             text-shadow:
@@ -485,7 +566,7 @@
         }
 
         .cta-container {
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
 
         .cta-btn {
@@ -1172,7 +1253,7 @@
             }
 
             .logo-container img {
-                height: 90px;
+                height:90px;
             }
 
             .review-grid {
@@ -1352,9 +1433,32 @@
 
     <div class="container">
         <h1>Where the world slows down.</h1>
-        <p>Tamarind is an eco-friendly farm stay and 3 bedroom private villa with an indoor dip pool open to sky, in Vilappilsala, 30 minutes from Trivandrum — where birds speak louder than traffic and life gently reminds you of what really matters.</p>
+        <p>Tamarind is an Eco-friendly 3-bedroom private villa with an indoor dip pool, just 30 minutes from Trivandrum. Where birds sing louder than traffic.</p>
         <br>
-        <div class="cta-container">
+<div class="hero-trust">
+
+    <span class="trust-stat">
+        ★★★★★ <strong>5.0</strong>
+    </span>
+
+    <span class="trust-divider">•</span>
+
+    <span class="trust-stat">
+        <strong>450+ Guests</strong> 
+    </span>
+
+    <span class="trust-divider">•</span>
+
+    <span class="trust-stat">
+        From <strong>₹5,500</strong>
+    </span>
+
+</div>
+
+<div class="hero-rating">
+    Rated on Airbnb & Google
+</div>
+<div class="cta-container">
             <a href="https://wa.me/message/WRMYBZ57VSD4K1" target="_blank" rel="noopener" class="cta-btn" aria-label="Chat with Tamarind hosts on WhatsApp">Chat on Whatsapp</a>
             <a href="https://airbnb.co.in/h/underthetamarind" target="_blank" rel="noopener" class="cta-btn-green" aria-label="Book Tamarind farm stay on Airbnb">Book on Airbnb</a>
         </div>
