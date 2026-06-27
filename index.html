@@ -471,18 +471,39 @@
         }
 
         .hero p {
+            /* background: var(--cream); */
+            display: inline;
             font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto 2rem auto;
             font-weight: 600;
             color: var(--cream);
+            text-shadow:
+                0 2px 8px rgba(0,0,0,.45),
+                0 0 2px rgba(0,0,0,.5);
+           
+        }
+
+        .cta-container {
+            margin-top: 2rem;
         }
 
         .cta-btn {
             display: inline-block;
             padding: 1rem 2.5rem;
             background-color: var(--brick);
-            color: white;
+            color:var(--cream);
+            border-radius: 50px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 20px rgba(176, 94, 60, 0.3);
+        }
+
+        .cta-btn-green {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--green);
+            color:var(--cream);
             border-radius: 50px;
             font-weight: 700;
             letter-spacing: 1px;
@@ -490,7 +511,14 @@
         }
 
         .cta-btn:hover {
-            background-color: var(--green);
+            background-color: var(--cream);
+            color: var(--brick);
+            transform: translateY(-2px);
+        }
+
+         .cta-btn-green:hover {
+            background-color: var(--cream);
+            color: var(--green);
             transform: translateY(-2px);
         }
 
@@ -1324,11 +1352,11 @@
 
     <div class="container">
         <h1>Where the world slows down.</h1>
-        <p>Tamarind is an eco-friendly farm stay and private villa in Vilappilsala, Trivandrum — where birds speak louder than traffic and life gently reminds you of what really matters.</p>
+        <p>Tamarind is an eco-friendly farm stay and 3 bedroom private villa with an indoor dip pool open to sky, in Vilappilsala, 30 minutes from Trivandrum — where birds speak louder than traffic and life gently reminds you of what really matters.</p>
         <br>
         <div class="cta-container">
             <a href="https://wa.me/message/WRMYBZ57VSD4K1" target="_blank" rel="noopener" class="cta-btn" aria-label="Chat with Tamarind hosts on WhatsApp">Chat on Whatsapp</a>
-            <a href="https://airbnb.co.in/h/underthetamarind" target="_blank" rel="noopener" class="cta-btn" aria-label="Book Tamarind farm stay on Airbnb">Book on Airbnb</a>
+            <a href="https://airbnb.co.in/h/underthetamarind" target="_blank" rel="noopener" class="cta-btn-green" aria-label="Book Tamarind farm stay on Airbnb">Book on Airbnb</a>
         </div>
     </div>
 </section>
