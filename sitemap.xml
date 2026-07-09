@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <url>
+        <loc>https://underthetamarind.com/</loc>
+        <lastmod>2026-05-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://underthetamarind.com/hero-desktop.webp</image:loc>
+            <image:title>Tamarind Farm Stay — Laurie Baker inspired villa in Trivandrum</image:title>
+            <image:caption>Brick farmhouse and tropical garden at Tamarind, an eco-friendly farm stay in Vilappilsala near Trivandrum, Kerala.</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://underthetamarind.com/hall.webp</image:loc>
+            <image:title>Open living hall with exposed brick walls</image:title>
+            <image:caption>Open living hall with exposed brick walls and filler slabs at Tamarind farm stay.</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://underthetamarind.com/pool.webp</image:loc>
+            <image:title>Indoor stone dip pool at Tamarind</image:title>
+            <image:caption>Small indoor stone dip pool and waterfall inside the Tamarind villa, Trivandrum — meant for soaking, not swimming laps.</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://underthetamarind.com/pool-top.webp</image:loc>
+            <image:title>Morning light through a Baker jali brick screen</image:title>
+            <image:caption>Morning light streaming through a Baker jali brick screen onto the indoor dip pool.</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://underthetamarind.com/bedroom.webp</image:loc>
+            <image:title>Cosy bedroom at Tamarind farm villa</image:title>
+            <image:caption>Cosy bedroom with cotton linens and brick walls in the 3-bedroom Tamarind villa.</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://underthetamarind.com/loft.webp</image:loc>
+            <image:title>Reading loft with timber roof beams</image:title>
+            <image:caption>Reading loft with timber roof beams in the Tamarind farm villa, Vilappilsala.</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://underthetamarind.com/farm.webp</image:loc>
+            <image:title>32-cent fruit plantation at Tamarind</image:title>
+            <image:caption>Fruit plantation and private garden surrounding Tamarind farm stay in Vilappilsala.</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://underthetamarind.com/stairs.webp</image:loc>
+            <image:title>Curved brick staircase at Tamarind</image:title>
+            <image:caption>Curved brick staircase and lush green surroundings at the Tamarind farmhouse.</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://underthetamarind.com/dine.webp</image:loc>
+            <image:title>Traditional Kerala breakfast at Tamarind</image:title>
+            <image:caption>Authentic Kerala breakfast served on the patio at Tamarind farm stay.</image:caption>
+        </image:image>
+    </url>
+</urlset>
