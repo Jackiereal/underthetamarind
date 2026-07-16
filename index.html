@@ -333,6 +333,8 @@
             /* Text */
             --star-gold: #D4AF37;
             /* For reviews */
+            --gold: #D4AF37;
+            /* Fixes existing var(--gold) references sitewide */
             --transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
@@ -1445,6 +1447,310 @@
                 grid-auto-rows: 250px;
             }
         }
+
+        /* --- POSTCARDS FROM TAMARIND --- */
+        .postcards-section {
+            padding: 6rem 0;
+            background-color: var(--stone);
+            overflow: hidden;
+        }
+
+        .postcards-section .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            padding: 0 2rem;
+        }
+
+        .postcards-section .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--brick);
+            letter-spacing: 2px;
+        }
+
+        .postcards-section .section-header .separator {
+            background-color: var(--green);
+        }
+
+        .postcards-section .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--green);
+            font-weight: 500;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .postcards-section .section-helper {
+            font-size: 0.85rem;
+            color: #777;
+            letter-spacing: 0.5px;
+            margin-top: 0.75rem;
+            line-height: 1.6;
+        }
+
+        /* Horizontal scroll track */
+        .postcard-track {
+            display: flex;
+            gap: 1.75rem;
+            overflow-x: auto;
+            scroll-snap-type: x proximity;
+            padding: 0.5rem 2rem 1.5rem 2rem;
+            margin: 0 auto;
+            max-width: 1240px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--brick) transparent;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .postcard-track::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .postcard-track::-webkit-scrollbar-thumb {
+            background-color: rgba(176, 94, 60, 0.35);
+            border-radius: 10px;
+        }
+
+        .postcard {
+            scroll-snap-align: start;
+            flex: 0 0 auto;
+            width: 300px;
+            min-height: 360px;
+            background-color: var(--cream);
+            background-image: radial-gradient(rgba(44, 44, 44, 0.025) 1px, transparent 1px);
+            background-size: 6px 6px;
+            border-radius: 10px;
+            padding: 2.75rem 2.25rem;
+            box-shadow: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: left;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            font: inherit;
+            color: inherit;
+            border: none;
+        }
+
+        .postcard:hover,
+        .postcard:focus-visible {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(44, 44, 44, 0.06);
+        }
+
+        .postcard.active {
+            box-shadow: 0 8px 20px rgba(176, 94, 60, 0.1);
+        }
+
+        .postcard-date {
+            display: block;
+            text-align: right;
+            font-size: 0.8rem;
+            color: #999;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .postcard-quote {
+            font-size: 1.45rem;
+            font-weight: 500;
+            color: var(--charcoal);
+            line-height: 1.5;
+            margin-bottom: 2rem;
+        }
+
+        .postcard-quote::before {
+            content: "\201C";
+        }
+
+        .postcard-quote::after {
+            content: "\201D";
+        }
+
+        .postcard-read-link {
+            font-size: 0.85rem;
+            color: var(--brick);
+            letter-spacing: 0.3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .postcard-read-link .arrow {
+            display: inline-block;
+            transition: transform 0.25s ease;
+        }
+
+        .postcard:hover .postcard-read-link .arrow,
+        .postcard:focus-visible .postcard-read-link .arrow {
+            transform: translateX(4px);
+        }
+
+        /* Expanded story panel */
+        .postcard-expand {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .postcard-expand.open {
+            grid-template-rows: 1fr;
+            margin-top: 3rem;
+        }
+
+        .postcard-expand-inner {
+            overflow: hidden;
+        }
+
+        .postcard-expand-card {
+            background-color: var(--cream);
+            border-radius: 15px;
+            padding: 3rem 2.75rem;
+            box-shadow: 0 10px 40px rgba(44, 44, 44, 0.08);
+        }
+
+        .postcard-expand-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .postcard-expand-meta span {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--brick);
+        }
+
+        .postcard-close {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.8rem;
+            color: #999;
+            letter-spacing: 0.5px;
+            padding: 0.4rem 0.6rem;
+            transition: color 0.2s ease;
+        }
+
+        .postcard-close:hover {
+            color: var(--brick);
+        }
+
+        .postcard-expand-body {
+            font-size: 1.1rem;
+            line-height: 1.85;
+            color: var(--charcoal);
+        }
+
+        .postcard-expand-body p {
+            margin-bottom: 1.4rem;
+        }
+
+        .postcard-expand-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .postcard-expand-photo {
+            margin: 2rem -0.25rem;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .postcard-expand-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .postcard-expand-photo figcaption {
+            font-size: 0.75rem;
+            color: #888;
+            text-align: center;
+            margin-top: 0.6rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Closing pause */
+        .postcards-close {
+            max-width: 700px;
+            margin: 5rem auto 0 auto;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .postcards-close h3 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: var(--brick);
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .postcards-close .close-support {
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #555;
+            max-width: 520px;
+            margin: 0 auto 2.5rem auto;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .postcards-section {
+                padding: 4rem 0;
+            }
+
+            .postcards-section .section-header h2 {
+                font-size: 1.7rem;
+            }
+
+            .postcard-track {
+                padding: 0.5rem 1.25rem 1.25rem 1.25rem;
+                gap: 1.25rem;
+                scroll-snap-type: x mandatory;
+            }
+
+            .postcard {
+                width: 78vw;
+                max-width: 300px;
+            }
+
+            .postcard-expand,
+            .postcards-close {
+                padding: 0 1.25rem;
+            }
+
+            .postcard-expand-card {
+                padding: 2.25rem 1.5rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade-up {
+                transition: opacity 0.3s linear;
+                transform: none;
+            }
+
+            .postcard,
+            .postcard-expand,
+            .postcard-close {
+                transition: none;
+            }
+
+            .postcard-track {
+                scroll-behavior: auto;
+            }
+        }
     </style>
 </head>
 
@@ -1609,6 +1915,41 @@
                 </div>
             </div>
         </section>
+
+        <section class="postcards-section" aria-labelledby="postcards-heading">
+            <div class="section-header fade-up">
+                <h2 id="postcards-heading">A Place You'll Remember</h2>
+                <div class="separator"></div>
+                <p class="section-subtitle">Read the moments our guests still talk about.</p>
+                <p class="section-helper">Collected over seasons.<br>Written by those who once called Tamarind
+                    home.</p>
+            </div>
+
+            <div class="postcard-track fade-up" id="postcard-track" role="list" aria-label="Guest moments">
+                <!-- Postcards rendered dynamically by JS from the postcards data array -->
+            </div>
+
+            <div class="postcard-expand" id="postcard-expand">
+                <div class="postcard-expand-inner">
+                    <div class="postcard-expand-card" id="postcard-expand-card">
+                        <!-- Expanded story injected by JS on postcard click -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="postcards-close fade-up">
+                <h3>Maybe your next memory begins here.</h3>
+                <p class="close-support">If Tamarind feels like the pause you've been looking for, we'd love to
+                    welcome you.</p>
+                <div class="cta-container">
+                    <a href="https://wa.me/message/WRMYBZ57VSD4K1" target="_blank" rel="noopener"
+                        class="cta-btn" aria-label="Chat with Tamarind hosts on WhatsApp">Chat on Whatsapp</a>
+                    <a href="https://airbnb.co.in/h/underthetamarind" target="_blank" rel="noopener"
+                        class="cta-btn-green" aria-label="Book Tamarind farm stay on Airbnb">Book on Airbnb</a>
+                </div>
+            </div>
+        </section>
+
         <section class="architecture-story" style="padding: 6rem 0; background-color: #fff;">
             <div class="container fade-up"
                 style="max-width: 1080px; margin: 0 auto; text-align: center; padding: 0 30px;">
@@ -2068,76 +2409,6 @@
             </div>
         </section>
 
-        <section class="reviews">
-            <div class="container fade-up">
-                <h2>Kind Words from Guests</h2>
-                <span class="reviews-subtitle">Rated 5 ★ on <a href="https://airbnb.co.in/h/underthetamarind"
-                        target="_blank" rel="noopener" aria-label="Read Tamarind reviews on Airbnb">Airbnb</a> &amp; <a
-                        href="https://www.google.com/maps/place/Tamarind/@8.5717722,76.8500907,11z/data=!4m11!1m2!10m1!1e4!3m7!1s0x3b05b10059de0af3:0xc6f808de20ed2785!8m2!3d8.5276344!4d77.0334495!9m1!1b1!16s%2Fg%2F11yrxpy61s?authuser=6&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
-                        target="_blank" rel="noopener" aria-label="Read Tamarind reviews on Google">Google</a></span>
-
-                <div class="review-grid">
-                    <div class="review-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="review-text">"Would definitely recommend to anyone looking for a relaxing getaway."
-                        </p>
-                        <div class="reviewer">
-                            <span class="platform-icon"><img src="airbnb.png" alt="Airbnb logo" /></span> Arjun, Airbnb
-
-                        </div>
-                    </div>
-
-                    <div class="review-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="review-text">"Absolutely the best weekend getaway! A perfect escape from all the
-                            chaos!
-                            Peaceful, calming, and beautifully surrounded by nature. "</p>
-                        <div class="reviewer">
-                            <span class="platform-icon"><img src="google.png" alt="Google logo" /></span> Diya, Google
-                        </div>
-                    </div>
-
-                    <div class="review-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="review-text">"A Perfect Staycation with an Exceptional Host"</p>
-                        <div class="reviewer">
-                            <span class="platform-icon"><img src="airbnb.png" alt="Airbnb logo" /></span> Sanju, Airbnb
-                        </div>
-                    </div>
-                </div>
-
-                <br><br>
-                <a href="https://airbnb.co.in/h/underthetamarind" target="_blank" rel="noopener"
-                    style="text-decoration: underline; color: var(--brick); font-weight: 600;">Read all reviews on
-                    Airbnb
-                    &rarr;</a>
-
-                <div class="gallery-cta">
-                    <a href="https://wa.me/message/WRMYBZ57VSD4K1" target="_blank" rel="noopener" class="cta-btn"
-                        aria-label="Chat with Tamarind hosts on WhatsApp">Chat on Whatsapp</a>
-                    <a href="https://airbnb.co.in/h/underthetamarind" target="_blank" rel="noopener" class="cta-btn"
-                        aria-label="Book Tamarind farm stay on Airbnb">Book on Airbnb</a>
-
-                </div>
-            </div>
-        </section>
-
-
-
-        <section class="hosts">
-            <div class="container fade-up">
-                <blockquote>
-                    "This is not a place for rushing. It’s a place for listening. To the birds. To the wind. To your own
-                    thoughts."
-                </blockquote>
-                <p style="margin-top: 1rem; font-weight: 600;">— Indu & Teja, Hosts</p>
-                <!-- <br><br>
-            <p style="max-width: 600px; margin: 0 auto; font-size: 0.95rem; color: #666;">
-                We share our home not as a rental, but as a retreat. Whether you are escaping a busy life, seeking inspiration, or needing time with someone you love, Tamarind welcomes you.
-            </p> -->
-            </div>
-        </section>
-
         <section class="contact-section">
             <div class="map-container">
                 <iframe title="Google maps"
@@ -2203,6 +2474,184 @@
         }, observerOptions);
 
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        /* --- Postcards from Tamarind -------------------------------------------
+           Data-driven: each postcard is one object below. Rendering, the
+           expand/collapse panel, and the "featured on load" pick are all
+           generated from this array, so adding postcard #9 is a one-object
+           edit — no new HTML/CSS needed.
+        ------------------------------------------------------------------------ */
+        const postcards = [
+            {
+                id: 'p01',
+                quote: 'Our phones quietly disappeared into our bags.',
+                context: 'Seven Friends',
+                season: 'July 2026',
+                category: 'SLOW LIVING',
+                story: [
+                    'I don’t quite know where to begin because, truthfully, I think a part of my soul is still sitting quietly on that veranda, listening to the birds, breathing in the calm, and refusing to leave.',
+                    'Tamarind isn’t just a stay, it’s an experience. The moment we walked in, it felt less like a vacation rental and more like a home that had been waiting to welcome us. Every little corner carries warmth, thought, and love.',
+                    'Ironically, we don’t have too many pictures to share — not because the place wasn’t photogenic, but because we spent more time living in the moment than documenting it. Our phones quietly disappeared into our bags while conversations became longer and laughter became louder.',
+                    'We left with lighter hearts, fuller souls, and memories we’ll cherish for a very long time. Tamarind isn’t just a destination; it’s a feeling — and that’s something you’ll carry with you forever.'
+                ],
+                image: { src: 'stairs.webp', w: 680, h: 907, alt: 'Curved brick staircase catching morning light at Tamarind, a Laurie Baker–inspired farm stay near Trivandrum', caption: 'The staircase, mid-morning' }
+            },
+            {
+                id: 'p02',
+                quote: 'It reminded me of my childhood.',
+                context: 'Group Getaway',
+                season: 'July 2026',
+                category: 'NOSTALGIA',
+                story: [
+                    'For me personally, Tamarind awakened something deeply nostalgic. It reminded me of earthen homes, slow afternoons, open spaces, and the kind of peace that’s becoming increasingly rare in today’s world.',
+                    'There’s a silence here that doesn’t feel empty; it feels healing.'
+                ],
+                image: { src: 'hall.webp', w: 400, h: 212, alt: 'Open living hall with exposed brick walls and filler slabs at Tamarind, a Laurie Baker–inspired farm stay near Trivandrum', caption: 'The living hall' }
+            },
+            {
+                id: 'p03',
+                quote: 'A part of my soul is still sitting quietly on that veranda.',
+                context: 'Weekend Escape',
+                season: 'July 2026',
+                category: 'PEACE',
+                story: [
+                    'As a group of workaholics constantly racing against deadlines, this was exactly the escape we didn’t know we desperately needed. It’s rare to find a place that feels luxurious not because of extravagance, but because of the peace it offers.',
+                    'We’re already talking about when — not if — we’ll be back, and next time, it will definitely be for longer.'
+                ],
+                image: { src: 'pool-top.webp', w: 400, h: 600, alt: 'Morning light streaming through a Baker jali brick screen onto the indoor dip pool at Tamarind farm stay', caption: 'Morning light on the pool' }
+            },
+            {
+                id: 'p04',
+                quote: 'It feels like home.',
+                context: 'Family Stay',
+                season: 'Mar 2026',
+                category: 'TOGETHERNESS',
+                story: [
+                    'It was amazing — my family loved it, everyone felt we should have stayed more. It’s an architectural marvel.',
+                    'The little details, like the handmade soaps and the towels, add up to the warmth you feel.'
+                ],
+                image: { src: 'bedroom.webp', w: 400, h: 300, alt: 'Cosy bedroom with cotton linens and brick walls in the 3-bedroom Tamarind villa', caption: 'A quiet corner to rest' }
+            },
+            {
+                id: 'p05',
+                quote: 'A calming, rustic environment.',
+                context: 'Couple’s Retreat',
+                season: 'Feb 2026',
+                category: 'NATURE',
+                story: [
+                    'Such a refreshing break from typical modern rentals. The brickwork and the internal water feature are gorgeous — a very calming, rustic environment.',
+                    'We really enjoyed the stay and the unique eco-farm atmosphere.'
+                ],
+                image: { src: 'pool.webp', w: 400, h: 600, alt: 'Indoor stone dip pool and waterfall lit at night inside Tamarind villa, Trivandrum', caption: 'The dip pool, after dark' }
+            },
+            {
+                id: 'p06',
+                quote: 'I’m already looking forward to my next visit.',
+                context: 'Returning Guest',
+                season: 'Dec 2025',
+                category: 'PEACE',
+                story: [
+                    'This was my second time staying at this beautiful home, and it was just as wonderful as the first. The peaceful atmosphere and beautiful architecture make it truly special.',
+                    'Our host was as enthusiastic and friendly as ever, ensuring easy communication throughout.'
+                ],
+                image: { src: 'loft.webp', w: 400, h: 300, alt: 'Reading loft with timber roof beams in the Tamarind farm villa in Vilappilsala, Trivandrum', caption: 'The reading loft' }
+            },
+            {
+                id: 'p07',
+                quote: 'Our two kids didn’t once ask for any screen time.',
+                context: 'Family with Children',
+                season: 'Dec 2026',
+                category: 'FAMILY',
+                story: [
+                    'As soon as we entered this stunning house, a deep calm settled over all of us. The house centres around a lovely pool under a huge well of sunlight, and the sound of running water permeates every space.',
+                    'Over the four nights we stayed there, our two kids didn’t once ask for any screen time — this is testament to the magic of this place.',
+                    'We read, played, cooked, meditated, rested. We hope to return and retreat again.'
+                ],
+                image: { src: 'farm.webp', w: 400, h: 300, alt: '32-cent fruit plantation and private garden surrounding Tamarind farm stay in Vilappilsala', caption: 'The garden, between showers' }
+            }
+        ];
+
+        const track = document.getElementById('postcard-track');
+        const expandWrap = document.getElementById('postcard-expand');
+        const expandCard = document.getElementById('postcard-expand-card');
+        let activeId = null;
+
+        function renderPostcards(featuredId) {
+            track.innerHTML = '';
+            var ordered = postcards.slice();
+            if (featuredId) {
+                ordered.sort(function (a, b) {
+                    if (a.id === featuredId) return -1;
+                    if (b.id === featuredId) return 1;
+                    return 0;
+                });
+            }
+            ordered.forEach(function (card, i) {
+                var el = document.createElement('button');
+                el.type = 'button';
+                el.className = 'postcard fade-up';
+                el.id = 'postcard-' + card.id;
+                el.setAttribute('role', 'listitem');
+                el.setAttribute('aria-expanded', 'false');
+                el.setAttribute('aria-controls', 'postcard-expand');
+                if (i > 0) el.style.transitionDelay = Math.min(i * 0.08, 0.4) + 's';
+
+                el.innerHTML =
+                    (card.season ? '<span class="postcard-date">' + card.season + '</span>' : '') +
+                    '<p class="postcard-quote">' + card.quote + '</p>' +
+                    '<span class="postcard-read-link">Read their story <span class="arrow" aria-hidden="true">&rarr;</span></span>';
+
+                el.addEventListener('click', function () { toggleStory(card); });
+                track.appendChild(el);
+                observer.observe(el);
+            });
+        }
+
+        function toggleStory(card) {
+            var alreadyOpen = activeId === card.id;
+            document.querySelectorAll('.postcard.active').forEach(function (p) {
+                p.classList.remove('active');
+                p.setAttribute('aria-expanded', 'false');
+            });
+
+            if (alreadyOpen) {
+                expandWrap.classList.remove('open');
+                activeId = null;
+                return;
+            }
+
+            var storyHtml = '<div class="postcard-expand-meta">' +
+                '<span>' + card.context + (card.season ? ' · ' + card.season : '') + '</span>' +
+                '<button type="button" class="postcard-close" id="postcard-close-btn">Close ×</button>' +
+                '</div>' +
+                '<div class="postcard-expand-body">' +
+                card.story.map(function (p, i) {
+                    var mid = card.image && card.story.length > 1 && i === Math.floor(card.story.length / 2) - 1
+                        ? '<figure class="postcard-expand-photo"><img src="' + card.image.src + '" width="' + card.image.w + '" height="' + card.image.h + '" loading="lazy" alt="' + card.image.alt + '"><figcaption>' + card.image.caption + '</figcaption></figure>'
+                        : '';
+                    return '<p>' + p + '</p>' + mid;
+                }).join('') +
+                '</div>';
+
+            expandCard.innerHTML = storyHtml;
+            expandWrap.classList.add('open');
+            activeId = card.id;
+
+            var postcardEl = document.getElementById('postcard-' + card.id);
+            if (postcardEl) postcardEl.classList.add('active');
+            postcardEl && postcardEl.setAttribute('aria-expanded', 'true');
+
+            document.getElementById('postcard-close-btn').addEventListener('click', function () {
+                toggleStory(card);
+            });
+
+            requestAnimationFrame(function () {
+                expandWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            });
+        }
+
+        var featured = postcards[Math.floor(Math.random() * postcards.length)];
+        renderPostcards(featured.id);
 
         const yearEl = document.getElementById('copyright-year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
