@@ -369,6 +369,17 @@
             color: var(--charcoal);
         }
 
+        .section-title-responsive {
+            font-size: 2.2rem;
+        }
+
+        @media (max-width: 480px) {
+            .section-title-responsive {
+                font-size: 1.5rem;
+                letter-spacing: 0.5px !important;
+            }
+        }
+
         a {
             text-decoration: none;
             color: inherit;
@@ -596,6 +607,11 @@
 
         .cta-container {
             margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .cta-btn {
@@ -786,6 +802,10 @@
             }
 
             /* Vertical stack */
+
+            .amenities-title h2 {
+                font-size: 1.5rem;
+            }
         }
 
         /* --- AESTHETIC GALLERY SECTION --- */
@@ -1735,6 +1755,13 @@
             }
         }
 
+        @media (max-width: 480px) {
+            .postcards-section .section-header h2 {
+                font-size: 1.4rem;
+                letter-spacing: 0.5px;
+            }
+        }
+
         @media (prefers-reduced-motion: reduce) {
             .fade-up {
                 transition: opacity 0.3s linear;
@@ -1865,8 +1892,7 @@
 
         <section class="gallery-section">
             <div style="text-align: center; margin-bottom: 4rem;">
-                <h2
-                    style="font-family: 'Quicksand', sans-serif; font-weight: 600; font-size: 2.2rem; color: var(--brick); letter-spacing: 2px;">
+                <h2 class="section-title-responsive" style="color: var(--brick); letter-spacing: 2px;">
                     The soul of Tamarind</h2>
                 <div style="width: 50px; height: 1px; background: var(--gold); margin: 20px auto;"></div>
             </div>
@@ -1954,8 +1980,7 @@
             <div class="container fade-up"
                 style="max-width: 1080px; margin: 0 auto; text-align: center; padding: 0 30px;">
 
-                <h3
-                    style="font-family: 'Quicksand', sans-serif; color: var(--brick); font-size: 2.2rem; margin-bottom: 2rem; font-weight: 600; letter-spacing: 1px;">
+                <h3 class="section-title-responsive" style="color: var(--brick); margin-bottom: 2rem; letter-spacing: 1px;">
                     The Spirit of Laurie Baker
                 </h3>
 
@@ -2153,8 +2178,7 @@
                         style="text-transform: uppercase; color: var(--brick); font-weight: 700; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 0.5rem;">
                         Explore South Kerala
                     </p>
-                    <h2
-                        style="font-family: 'Quicksand', sans-serif; color: var(--brick); font-weight: 600; font-size: 2.2rem;">
+                    <h2 class="section-title-responsive" style="color: var(--brick);">
                         The Vilappilsala Trails: Things to Do in Trivandrum
                     </h2>
                 </div>
