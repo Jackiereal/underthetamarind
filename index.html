@@ -614,6 +614,27 @@
             flex-wrap: wrap;
         }
 
+        .hero-availability-link {
+            display: inline-block;
+            padding: 0.65rem 1.5rem;
+            border: 1.5px solid var(--cream);
+            border-radius: 50px;
+            color: var(--cream);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, .45), 0 0 2px rgba(0, 0, 0, .5);
+            transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+        }
+
+        .hero-availability-link:hover {
+            background-color: var(--cream);
+            color: var(--brick);
+            text-shadow: none;
+            transform: translateY(-2px);
+        }
+
         .cta-btn {
             display: inline-block;
             padding: 1rem 2.5rem;
@@ -1774,6 +1795,7 @@
         .booking-section {
             padding: 6rem 0;
             background-color: var(--stone);
+            scroll-margin-top: 2rem;
         }
 
         .booking-section .section-header {
@@ -1878,6 +1900,7 @@
         .booking-card {
             max-width: 420px;
             margin: 0 auto;
+            min-height: 460px;
             background-color: var(--cream);
             background-image: radial-gradient(rgba(44, 44, 44, 0.025) 1px, transparent 1px);
             background-size: 6px 6px;
@@ -2247,6 +2270,7 @@
                         aria-label="Chat with Tamarind hosts on WhatsApp">Chat on Whatsapp</a>
                     <a href="https://airbnb.co.in/h/underthetamarind" target="_blank" rel="noopener"
                         class="cta-btn-green" aria-label="Book Tamarind farm stay on Airbnb">Book on Airbnb</a>
+                    <a href="#availability" class="hero-availability-link">Check Live Availability &rarr;</a>
                 </div>
             </div>
         </section>
@@ -3421,6 +3445,34 @@
             } else {
                 fetchAvailability();
             }
+        })();
+
+        /* --- Reliable scroll for the hero "Check Live Availability" link -----
+           A plain #availability href relies on the browser's one-shot anchor
+           jump at load time, which races against layout still settling
+           (images, the calendar's own hidden->visible swap) and can land
+           past the section. Scrolling explicitly on click sidesteps that:
+           by the time this fires the page is fully laid out.
+        ------------------------------------------------------------------------ */
+        (function () {
+            var link = document.querySelector('.hero-availability-link');
+            var target = document.getElementById('availability');
+            if (!link || !target) return;
+
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                history.replaceState(null, '', '#availability');
+
+                // Images loading in above the section (gallery, postcards)
+                // can still be shifting layout when the click happens, which
+                // would throw off a single scrollIntoView call. Re-issuing
+                // the scroll a moment later corrects for any such shift that
+                // happened mid-animation.
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setTimeout(function () {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 500);
+            });
         })();
 
         const yearEl = document.getElementById('copyright-year');
