@@ -1,0 +1,8 @@
+name = "tamarind-availability"
+main = "src/index.js"
+compatibility_date = "2026-07-01"
+
+# Secret (set with: npx wrangler secret put AIRBNB_ICAL_URL)
+#   AIRBNB_ICAL_URL — the Airbnb calendar export .ics URL
+# When the secret is missing (e.g. first local run), the worker serves
+# built-in sample data so the frontend can be previewed.

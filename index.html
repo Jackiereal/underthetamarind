@@ -1770,6 +1770,391 @@
             }
         }
 
+        /* --- CHECK AVAILABILITY --- */
+        .booking-section {
+            padding: 6rem 0;
+            background-color: var(--stone);
+        }
+
+        .booking-section .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 2rem;
+        }
+
+        .booking-section .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--brick);
+            letter-spacing: 2px;
+        }
+
+        .booking-section .section-header .separator {
+            background-color: var(--green);
+        }
+
+        .booking-section .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--green);
+            font-weight: 500;
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .booking-layout {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .booking-info h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--brick);
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .booking-info>p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .booking-price {
+            background-color: var(--cream);
+            border-radius: 10px;
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .booking-price .price-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--brick);
+        }
+
+        .booking-price .price-value span {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #777;
+        }
+
+        .booking-price p {
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 0.4rem;
+        }
+
+        .booking-points {
+            list-style: none;
+            padding: 0;
+            color: #555;
+        }
+
+        .booking-points li {
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            margin-bottom: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .booking-points li::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--green);
+            flex-shrink: 0;
+            transform: translateY(-2px);
+        }
+
+        .booking-card {
+            max-width: 420px;
+            margin: 0 auto;
+            background-color: var(--cream);
+            background-image: radial-gradient(rgba(44, 44, 44, 0.025) 1px, transparent 1px);
+            background-size: 6px 6px;
+            border-radius: 10px;
+            padding: 2rem 1.75rem;
+            box-shadow: 0 6px 24px rgba(44, 44, 44, 0.06);
+        }
+
+        .cal-status {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #777;
+            padding: 2.5rem 0.5rem;
+        }
+
+        .cal-fallback {
+            text-align: center;
+            padding: 1.5rem 0.5rem;
+        }
+
+        .cal-fallback p {
+            font-size: 0.95rem;
+            color: #777;
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .cal-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+        }
+
+        .cal-head-label {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            letter-spacing: 0.5px;
+        }
+
+        .cal-nav-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: none;
+            color: var(--brick);
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s ease;
+            font-family: inherit;
+        }
+
+        .cal-nav-btn:hover:not(:disabled) {
+            background-color: var(--stone);
+        }
+
+        .cal-nav-btn:disabled {
+            opacity: 0.25;
+            cursor: default;
+        }
+
+        .cal-weekdays,
+        .cal-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+        }
+
+        .cal-weekdays {
+            margin-bottom: 0.4rem;
+        }
+
+        .cal-weekdays span {
+            text-align: center;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+        }
+
+        .cal-day {
+            aspect-ratio: 1;
+            min-height: 38px;
+            border: none;
+            background: none;
+            border-radius: 50%;
+            font-family: inherit;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: background-color 0.15s ease, color 0.15s ease;
+        }
+
+        .cal-day:hover:not(:disabled) {
+            background-color: var(--stone);
+        }
+
+        .cal-day.is-empty {
+            cursor: default;
+        }
+
+        .cal-day:disabled {
+            cursor: default;
+        }
+
+        .cal-day.is-past {
+            color: #ccc;
+        }
+
+        .cal-day.is-booked {
+            color: #bbb;
+            text-decoration: line-through;
+        }
+
+        .cal-day.is-today {
+            box-shadow: inset 0 0 0 1px var(--gold);
+        }
+
+        .cal-day.is-in-range {
+            background-color: rgba(176, 94, 60, 0.12);
+            border-radius: 0;
+        }
+
+        .cal-day.is-checkin,
+        .cal-day.is-checkout {
+            color: var(--cream);
+        }
+
+        .cal-day.is-checkin {
+            background-color: var(--brick);
+            border-radius: 50% 0 0 50%;
+        }
+
+        .cal-day.is-checkout {
+            background-color: var(--green);
+            border-radius: 0 50% 50% 0;
+        }
+
+        .cal-day.is-checkin.is-checkout {
+            border-radius: 50%;
+        }
+
+        .cal-legend {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.25rem;
+            font-size: 0.75rem;
+            color: #999;
+        }
+
+        .cal-legend span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .cal-legend .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--charcoal);
+            display: inline-block;
+        }
+
+        .cal-legend .dot.booked {
+            background-color: #bbb;
+        }
+
+        .cal-hint {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--brick);
+            min-height: 1.3em;
+            margin-top: 1rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .cal-hint.is-shake {
+            animation: cal-shake 0.3s ease;
+        }
+
+        @keyframes cal-shake {
+
+            25%,
+            75% {
+                transform: translateX(-4px);
+            }
+
+            50% {
+                transform: translateX(4px);
+            }
+        }
+
+        .cal-summary {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .cal-summary.is-open {
+            grid-template-rows: 1fr;
+            margin-top: 1.5rem;
+        }
+
+        .cal-summary-inner {
+            overflow: hidden;
+        }
+
+        .cal-summary-card {
+            border-top: 1px dashed #d8d2c4;
+            padding-top: 1.5rem;
+            text-align: center;
+        }
+
+        .cal-summary-dates {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 1.25rem;
+        }
+
+        .cal-guests-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cal-guests-row label {
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        .cal-guests-row select {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.9rem;
+            padding: 0.4rem 0.75rem;
+            border-radius: 6px;
+            border: 1px solid var(--stone);
+            background-color: var(--cream);
+            color: var(--charcoal);
+        }
+
+        .cal-summary-reassurance {
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .booking-section {
+                padding: 4rem 0;
+            }
+
+            .booking-card {
+                padding: 1.75rem 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .booking-section .section-header h2 {
+                font-size: 1.4rem;
+                letter-spacing: 0.5px;
+            }
+        }
+
         @media (prefers-reduced-motion: reduce) {
             .fade-up {
                 transition: opacity 0.3s linear;
@@ -1784,6 +2169,16 @@
 
             .postcard-track {
                 scroll-behavior: auto;
+            }
+
+            .cal-summary,
+            .cal-day,
+            .cal-nav-btn {
+                transition: none;
+            }
+
+            .cal-hint.is-shake {
+                animation: none;
             }
         }
     </style>
@@ -2439,6 +2834,91 @@
             </div>
         </section>
 
+        <section class="booking-section fade-up" id="availability" aria-labelledby="availability-heading">
+            <div class="section-header">
+                <h2 id="availability-heading">Check Availability</h2>
+                <div class="separator"></div>
+            </div>
+
+            <div class="booking-layout">
+                <div class="booking-info">
+                    <h3>When would you like to visit?</h3>
+                    <p>Pick your dates below — we'll confirm on WhatsApp and send a payment link once it's
+                        settled.</p>
+
+                    <div class="booking-price">
+                        <p class="price-value">&#8377;5,500<span>&nbsp;/ night onward</span></p>
+                        <p>Rates vary by season and length of stay.</p>
+                    </div>
+
+                    <ul class="booking-points">
+                        <li>No platform fees, ever</li>
+                        <li>Nothing to pay until we confirm</li>
+                        <li>Still prefer Airbnb? That works too</li>
+                    </ul>
+                </div>
+
+            <div class="booking-card">
+                <div id="cal-loading" class="cal-status">Checking the calendar&hellip;</div>
+
+                <div id="cal-fallback" class="cal-fallback" hidden>
+                    <p>Our calendar is resting right now &mdash; ask us directly and we'll check dates for you.</p>
+                    <a href="https://wa.me/917994131210?text=Hi%20Teja!%20I'd%20like%20to%20check%20availability%20for%20Tamarind."
+                        target="_blank" rel="noopener" class="cta-btn"
+                        aria-label="Ask about availability on WhatsApp">Ask on WhatsApp</a>
+                </div>
+
+                <div id="cal-app" hidden>
+                    <div class="cal-head">
+                        <button type="button" class="cal-nav-btn" id="cal-prev" aria-label="Previous month">&#8249;</button>
+                        <span class="cal-head-label" id="cal-month-label"></span>
+                        <button type="button" class="cal-nav-btn" id="cal-next" aria-label="Next month">&#8250;</button>
+                    </div>
+
+                    <div class="cal-weekdays">
+                        <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+                    </div>
+
+                    <div class="cal-days" id="cal-days" role="grid" aria-label="Select check-in and check-out dates"></div>
+
+                    <div class="cal-legend">
+                        <span><i class="dot"></i> Available</span>
+                        <span><i class="dot booked"></i> Booked</span>
+                    </div>
+
+                    <p class="cal-hint" id="cal-hint" aria-live="polite">Pick your check-in day</p>
+
+                    <div class="cal-summary" id="cal-summary">
+                        <div class="cal-summary-inner">
+                            <div class="cal-summary-card">
+                                <p class="cal-summary-dates" id="cal-summary-dates"></p>
+                                <div class="cal-guests-row">
+                                    <label for="cal-guests">Guests</label>
+                                    <select id="cal-guests">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option selected>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                    </select>
+                                </div>
+                                <a href="#" id="cal-whatsapp-btn" target="_blank" rel="noopener" class="cta-btn-green"
+                                    aria-label="Send this booking request on WhatsApp">Request on WhatsApp</a>
+                                <p class="cal-summary-reassurance">No payment now. We'll get back to you as soon
+                                    as possible.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
         <section class="contact-section">
             <div class="map-container">
                 <iframe title="Google maps"
@@ -2682,6 +3162,266 @@
 
         var featured = postcards[Math.floor(Math.random() * postcards.length)];
         renderPostcards(featured.id);
+
+        /* --- Check Availability calendar ---------------------------------------
+           Fetches busy date ranges from the tamarind-availability Cloudflare
+           Worker (proxies the host's Airbnb iCal export) only once the
+           section nears the viewport. Renders a month grid client-side, lets
+           the guest pick a check-in/check-out range, then hands off to a
+           prefilled WhatsApp message — no payment or PII leaves the browser.
+        ------------------------------------------------------------------------ */
+        (function () {
+            var BOOKING_API = 'https://tamarind-availability.underthetamarind.workers.dev';
+            var WHATSAPP_NUMBER = '917994131210';
+            var MAX_MONTHS_AHEAD = 12;
+
+            var section = document.getElementById('availability');
+            if (!section) return;
+
+            var loadingEl = document.getElementById('cal-loading');
+            var fallbackEl = document.getElementById('cal-fallback');
+            var appEl = document.getElementById('cal-app');
+            var monthLabelEl = document.getElementById('cal-month-label');
+            var daysEl = document.getElementById('cal-days');
+            var prevBtn = document.getElementById('cal-prev');
+            var nextBtn = document.getElementById('cal-next');
+            var hintEl = document.getElementById('cal-hint');
+            var summaryEl = document.getElementById('cal-summary');
+            var summaryDatesEl = document.getElementById('cal-summary-dates');
+            var guestsSelect = document.getElementById('cal-guests');
+            var whatsappBtn = document.getElementById('cal-whatsapp-btn');
+
+            var busyRanges = []; // [{start:'YYYY-MM-DD', end:'YYYY-MM-DD'}]
+            var todayStr = toDateStr(new Date());
+            var viewDate = startOfMonth(new Date());
+            var minMonth = startOfMonth(new Date());
+            var maxMonth = addMonths(minMonth, MAX_MONTHS_AHEAD);
+            var checkIn = null;
+            var checkOut = null;
+            var fetched = false;
+
+            function toDateStr(d) {
+                return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+            }
+            function pad(n) { return n < 10 ? '0' + n : '' + n; }
+            function startOfMonth(d) { return new Date(d.getFullYear(), d.getMonth(), 1); }
+            function addMonths(d, n) { return new Date(d.getFullYear(), d.getMonth() + n, 1); }
+            function sameMonth(a, b) { return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth(); }
+
+            function isBusy(dateStr) {
+                for (var i = 0; i < busyRanges.length; i++) {
+                    if (dateStr >= busyRanges[i].start && dateStr < busyRanges[i].end) return true;
+                }
+                return false;
+            }
+
+            // aStart < bEnd && bStart < aEnd — checkout day itself is free.
+            function rangeOverlapsBusy(startStr, endStr) {
+                for (var i = 0; i < busyRanges.length; i++) {
+                    var r = busyRanges[i];
+                    if (startStr < r.end && r.start < endStr) return true;
+                }
+                return false;
+            }
+
+            function fetchAvailability() {
+                if (fetched) return;
+                fetched = true;
+
+                var timeoutMs = 4000;
+                var controller = ('AbortController' in window) ? new AbortController() : null;
+                var timer = controller ? setTimeout(function () { controller.abort(); }, timeoutMs) : null;
+
+                fetch(BOOKING_API + '/availability', controller ? { signal: controller.signal } : {})
+                    .then(function (res) {
+                        if (timer) clearTimeout(timer);
+                        if (!res.ok) throw new Error('bad response');
+                        return res.json();
+                    })
+                    .then(function (data) {
+                        busyRanges = Array.isArray(data.busy) ? data.busy : [];
+                        showCalendar();
+                    })
+                    .catch(function () {
+                        if (timer) clearTimeout(timer);
+                        showFallback();
+                    });
+            }
+
+            function showCalendar() {
+                loadingEl.hidden = true;
+                fallbackEl.hidden = true;
+                appEl.hidden = false;
+                renderMonth();
+            }
+
+            function showFallback() {
+                loadingEl.hidden = true;
+                appEl.hidden = true;
+                fallbackEl.hidden = false;
+            }
+
+            var MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'];
+            var WEEKDAY_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+            function renderMonth() {
+                monthLabelEl.textContent = MONTH_NAMES[viewDate.getMonth()] + ' ' + viewDate.getFullYear();
+                prevBtn.disabled = sameMonth(viewDate, minMonth);
+                nextBtn.disabled = sameMonth(viewDate, maxMonth);
+
+                daysEl.innerHTML = '';
+
+                var year = viewDate.getFullYear();
+                var month = viewDate.getMonth();
+                var firstWeekday = new Date(year, month, 1).getDay();
+                var daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                for (var i = 0; i < firstWeekday; i++) {
+                    var empty = document.createElement('span');
+                    empty.className = 'cal-day is-empty';
+                    daysEl.appendChild(empty);
+                }
+
+                for (var day = 1; day <= daysInMonth; day++) {
+                    var dateObj = new Date(year, month, day);
+                    var dateStr = toDateStr(dateObj);
+                    var btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'cal-day';
+                    btn.textContent = String(day);
+
+                    var isPast = dateStr < todayStr;
+                    var busy = !isPast && isBusy(dateStr);
+                    var isToday = dateStr === todayStr;
+
+                    if (isPast) { btn.classList.add('is-past'); btn.disabled = true; }
+                    // A busy day can still be tapped as a checkout (checkout-day-free
+                    // semantics), so only disable it while picking a check-in.
+                    if (busy) {
+                        btn.classList.add('is-booked');
+                        if (!checkIn) btn.disabled = true;
+                    }
+                    if (isToday) btn.classList.add('is-today');
+                    if (checkIn && dateStr === checkIn) btn.classList.add('is-checkin');
+                    if (checkOut && dateStr === checkOut) btn.classList.add('is-checkout');
+                    if (checkIn && checkOut && dateStr > checkIn && dateStr < checkOut) btn.classList.add('is-in-range');
+
+                    var label = dateObj.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+                    btn.setAttribute('aria-label', label + (busy ? ', booked' : isPast ? ', past' : ', available'));
+
+                    (function (ds) {
+                        btn.addEventListener('click', function () { onDayClick(ds); });
+                    })(dateStr);
+
+                    daysEl.appendChild(btn);
+                }
+            }
+
+            function onDayClick(dateStr) {
+                if (!checkIn || (checkIn && checkOut)) {
+                    // Starting a fresh selection.
+                    checkIn = dateStr;
+                    checkOut = null;
+                    hintEl.textContent = 'Now pick your check-out day';
+                    closeSummary();
+                    renderMonth();
+                    return;
+                }
+
+                if (dateStr === checkIn) {
+                    // Tapping the same day clears the selection.
+                    checkIn = null;
+                    checkOut = null;
+                    hintEl.textContent = 'Pick your check-in day';
+                    closeSummary();
+                    renderMonth();
+                    return;
+                }
+
+                if (dateStr < checkIn) {
+                    // Picked an earlier day — treat it as the new check-in.
+                    checkIn = dateStr;
+                    hintEl.textContent = 'Now pick your check-out day';
+                    closeSummary();
+                    renderMonth();
+                    return;
+                }
+
+                if (rangeOverlapsBusy(checkIn, dateStr)) {
+                    shakeHint('Those nights are taken — try different dates');
+                    return;
+                }
+
+                checkOut = dateStr;
+                hintEl.textContent = '';
+                renderMonth();
+                openSummary();
+            }
+
+            function shakeHint(message) {
+                hintEl.textContent = message;
+                hintEl.classList.remove('is-shake');
+                // Force reflow so the animation can restart.
+                void hintEl.offsetWidth;
+                hintEl.classList.add('is-shake');
+            }
+
+            function openSummary() {
+                var inDate = new Date(checkIn + 'T00:00:00');
+                var outDate = new Date(checkOut + 'T00:00:00');
+                var nights = Math.round((outDate - inDate) / 86400000);
+                var fmt = { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' };
+                var inLabel = inDate.toLocaleDateString('en-IN', fmt);
+                var outLabel = outDate.toLocaleDateString('en-IN', fmt);
+
+                summaryDatesEl.textContent = inLabel + ' → ' + outLabel + ' · ' +
+                    nights + (nights === 1 ? ' night' : ' nights');
+
+                updateWhatsappLink(inLabel, outLabel, nights);
+                guestsSelect.onchange = function () { updateWhatsappLink(inLabel, outLabel, nights); };
+
+                summaryEl.classList.add('is-open');
+            }
+
+            function closeSummary() {
+                summaryEl.classList.remove('is-open');
+            }
+
+            function updateWhatsappLink(inLabel, outLabel, nights) {
+                var guests = guestsSelect.value;
+                var guestWord = guests === '1' ? 'guest' : 'guests';
+                var message = 'Hi! I\'d love to stay at Tamarind from ' + inLabel + ' to ' + outLabel +
+                    ' (' + nights + (nights === 1 ? ' night' : ' nights') + '), for ' + guests + ' ' + guestWord +
+                    '. Could you let me know if these dates work?';
+                whatsappBtn.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message);
+            }
+
+            prevBtn.addEventListener('click', function () {
+                if (sameMonth(viewDate, minMonth)) return;
+                viewDate = addMonths(viewDate, -1);
+                renderMonth();
+            });
+            nextBtn.addEventListener('click', function () {
+                if (sameMonth(viewDate, maxMonth)) return;
+                viewDate = addMonths(viewDate, 1);
+                renderMonth();
+            });
+
+            if ('IntersectionObserver' in window) {
+                var sectionObserver = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            fetchAvailability();
+                            sectionObserver.disconnect();
+                        }
+                    });
+                }, { root: null, threshold: 0, rootMargin: '200px' });
+                sectionObserver.observe(section);
+            } else {
+                fetchAvailability();
+            }
+        })();
 
         const yearEl = document.getElementById('copyright-year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
