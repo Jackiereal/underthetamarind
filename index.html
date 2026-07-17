@@ -1793,14 +1793,14 @@
 
         /* --- CHECK AVAILABILITY --- */
         .booking-section {
-            padding: 6rem 0;
+            padding: 4.5rem 0;
             background-color: var(--stone);
             scroll-margin-top: 2rem;
         }
 
         .booking-section .section-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.25rem;
             padding: 0 2rem;
         }
 
@@ -1824,6 +1824,35 @@
             line-height: 1.6;
         }
 
+        .booking-section .section-trust {
+            font-size: 0.9rem;
+            color: #777;
+            max-width: 460px;
+            margin: 0.5rem auto 0 auto;
+            line-height: 1.6;
+        }
+
+        .booking-social-proof {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.6rem;
+            margin-top: 0.65rem;
+            font-size: 0.95rem;
+            color: var(--brick);
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .booking-social-proof .star {
+            color: var(--gold);
+        }
+
+        .booking-social-proof .divider {
+            color: #ccc;
+            font-weight: 400;
+        }
+
         .booking-layout {
             max-width: 1000px;
             margin: 0 auto;
@@ -1831,7 +1860,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
-            align-items: center;
+            align-items: start;
         }
 
         .booking-info h3 {
@@ -1846,6 +1875,35 @@
             color: #555;
             line-height: 1.8;
             margin-bottom: 1.5rem;
+        }
+
+        .booking-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .booking-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: #444;
+            font-size: 0.92rem;
+            line-height: 1.4;
+        }
+
+        .booking-badge .badge-check {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background-color: var(--green);
+            color: var(--cream);
+            font-size: 0.75rem;
+            flex-shrink: 0;
         }
 
         .booking-price {
@@ -1873,21 +1931,41 @@
             margin-top: 0.4rem;
         }
 
-        .booking-points {
+        .booking-direct-card {
+            background-color: rgba(74, 93, 63, 0.035);
+            border: 1px solid rgba(74, 93, 63, 0.1);
+            border-radius: 10px;
+            padding: 1.1rem 1.5rem;
+        }
+
+        .booking-direct-card h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--green);
+            letter-spacing: 0.3px;
+            margin-bottom: 0.6rem;
+        }
+
+        .booking-direct-card ul {
             list-style: none;
             padding: 0;
-            color: #555;
         }
 
-        .booking-points li {
+        .booking-direct-card li {
             display: flex;
             align-items: baseline;
-            gap: 0.6rem;
-            margin-bottom: 0.85rem;
+            gap: 0.55rem;
+            color: #555;
+            font-size: 0.88rem;
             line-height: 1.6;
+            margin-bottom: 0.5rem;
         }
 
-        .booking-points li::before {
+        .booking-direct-card li:last-child {
+            margin-bottom: 0;
+        }
+
+        .booking-direct-card li::before {
             content: "";
             width: 6px;
             height: 6px;
@@ -1895,6 +1973,14 @@
             background-color: var(--green);
             flex-shrink: 0;
             transform: translateY(-2px);
+        }
+
+        .booking-calendar-lead {
+            text-align: center;
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--green);
+            margin-bottom: 1rem;
         }
 
         .booking-card {
@@ -1906,7 +1992,7 @@
             background-size: 6px 6px;
             border-radius: 10px;
             padding: 2rem 1.75rem;
-            box-shadow: 0 6px 24px rgba(44, 44, 44, 0.06);
+            box-shadow: 0 10px 32px rgba(44, 44, 44, 0.1);
         }
 
         .cal-status {
@@ -2169,9 +2255,22 @@
             .booking-card {
                 padding: 1.75rem 1.25rem;
             }
+
+            .booking-direct-card {
+                padding: 1.25rem 1.5rem;
+            }
         }
 
         @media (max-width: 480px) {
+            .booking-social-proof {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+
+            .booking-social-proof .divider {
+                display: none;
+            }
+
             .booking-section .section-header h2 {
                 font-size: 1.4rem;
                 letter-spacing: 0.5px;
@@ -2270,7 +2369,7 @@
                         aria-label="Chat with Tamarind hosts on WhatsApp">Chat on Whatsapp</a>
                     <a href="https://airbnb.co.in/h/underthetamarind" target="_blank" rel="noopener"
                         class="cta-btn-green" aria-label="Book Tamarind farm stay on Airbnb">Book on Airbnb</a>
-                    <a href="#availability" class="hero-availability-link">Check Live Availability &rarr;</a>
+                    <a href="#availability" class="hero-availability-link">Check Dates &amp; Request Booking &rarr;</a>
                 </div>
             </div>
         </section>
@@ -2860,30 +2959,50 @@
 
         <section class="booking-section fade-up" id="availability" aria-labelledby="availability-heading">
             <div class="section-header">
-                <h2 id="availability-heading">Check Availability</h2>
-                <div class="separator"></div>
+                <h2 id="availability-heading">Plan Your Stay</h2>
+                <p class="section-trust">Live availability synced with Airbnb. Book directly with no platform
+                    fees.</p>
+                <div class="booking-social-proof">
+                    <span><span class="star">&#9733;</span> Guest Favorite &bull; Superhost</span>
+                    <span class="divider">&bull;</span>
+                    <span>500+ Guests</span>
+                </div>
             </div>
 
             <div class="booking-layout">
                 <div class="booking-info">
                     <h3>When would you like to visit?</h3>
-                    <p>Pick your dates below — we'll confirm on WhatsApp and send a payment link once it's
-                        settled.</p>
+                    <p>Select your dates and guests. We'll confirm availability and send a secure payment link
+                        on WhatsApp.</p>
 
                     <div class="booking-price">
                         <p class="price-value">&#8377;5,500<span>&nbsp;/ night onward</span></p>
                         <p>Rates vary by season and length of stay.</p>
                     </div>
 
-                    <ul class="booking-points">
-                        <li>No platform fees, ever</li>
-                        <li>Nothing to pay until we confirm</li>
-                        <li>Still prefer Airbnb? That works too</li>
-                    </ul>
+                    <div class="booking-badges">
+                        <div class="booking-badge"><span class="badge-check">&#10003;</span> Live Airbnb
+                            calendar</div>
+                        <div class="booking-badge"><span class="badge-check">&#10003;</span> Book directly
+                            with us</div>
+                        <div class="booking-badge"><span class="badge-check">&#10003;</span> Personal WhatsApp
+                            support</div>
+                    </div>
+
+                    <div class="booking-direct-card">
+                        <h4>Book Direct</h4>
+                        <ul>
+                            <li>No platform fees</li>
+                            <li>Secure payment link, sent after confirmation</li>
+                            <li>Talk through dates or details before you pay</li>
+                        </ul>
+                    </div>
                 </div>
 
-            <div class="booking-card">
-                <div id="cal-loading" class="cal-status">Checking the calendar&hellip;</div>
+            <div class="booking-calendar-col">
+                <p class="booking-calendar-lead">Pick the dates that work best for you.</p>
+                <div class="booking-card">
+                    <div id="cal-loading" class="cal-status">Checking the calendar&hellip;</div>
 
                 <div id="cal-fallback" class="cal-fallback" hidden>
                     <p>Our calendar is resting right now &mdash; ask us directly and we'll check dates for you.</p>
@@ -2917,7 +3036,7 @@
                             <div class="cal-summary-card">
                                 <p class="cal-summary-dates" id="cal-summary-dates"></p>
                                 <div class="cal-guests-row">
-                                    <label for="cal-guests">Guests</label>
+                                    <label for="cal-guests">&#128100; Guests</label>
                                     <select id="cal-guests">
                                         <option>1</option>
                                         <option>2</option>
@@ -2932,14 +3051,29 @@
                                     </select>
                                 </div>
                                 <a href="#" id="cal-whatsapp-btn" target="_blank" rel="noopener" class="cta-btn-green"
-                                    aria-label="Send this booking request on WhatsApp">Request on WhatsApp</a>
-                                <p class="cal-summary-reassurance">No payment now. We'll get back to you as soon
-                                    as possible.</p>
+                                    aria-label="Send this booking request on WhatsApp">Reserve These Dates</a>
+                                <p class="cal-summary-reassurance">No payment required now. We'll confirm your
+                                    stay before sending the payment link.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            </div>
+            </div>
+        </section>
+
+        <section class="hosts">
+            <div class="container fade-up">
+                <blockquote>
+                    "This is not a place for rushing. It’s a place for listening. To the birds. To the wind. To your own
+                    thoughts."
+                </blockquote>
+                <p style="margin-top: 1rem; font-weight: 600;">— Indu & Teja, Hosts</p>
+                <!-- <br><br>
+            <p style="max-width: 600px; margin: 0 auto; font-size: 0.95rem; color: #666;">
+                We share our home not as a rental, but as a retreat. Whether you are escaping a busy life, seeking inspiration, or needing time with someone you love, Tamarind welcomes you.
+            </p> -->
             </div>
         </section>
 
