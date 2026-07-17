@@ -615,24 +615,7 @@
         }
 
         .hero-availability-link {
-            display: inline-block;
-            padding: 0.65rem 1.5rem;
-            border: 1.5px solid var(--cream);
-            border-radius: 50px;
-            color: var(--cream);
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
             text-decoration: none;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, .45), 0 0 2px rgba(0, 0, 0, .5);
-            transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
-        }
-
-        .hero-availability-link:hover {
-            background-color: var(--cream);
-            color: var(--brick);
-            text-shadow: none;
-            transform: translateY(-2px);
         }
 
         .cta-btn {
@@ -2365,11 +2348,10 @@
                     Rated on Airbnb & Google
                 </div>
                 <div class="cta-container">
-                    <a href="https://wa.me/message/WRMYBZ57VSD4K1" target="_blank" rel="noopener" class="cta-btn"
-                        aria-label="Chat with Tamarind hosts on WhatsApp">Chat on Whatsapp</a>
+                    <a href="#availability" class="hero-availability-link cta-btn">Check Dates &amp; Request
+                        Booking</a>
                     <a href="https://airbnb.co.in/h/underthetamarind" target="_blank" rel="noopener"
                         class="cta-btn-green" aria-label="Book Tamarind farm stay on Airbnb">Book on Airbnb</a>
-                    <a href="#availability" class="hero-availability-link">Check Dates &amp; Request Booking &rarr;</a>
                 </div>
             </div>
         </section>
@@ -2492,7 +2474,7 @@
                 <p class="close-support">If Tamarind feels like the pause you've been looking for, we'd love to
                     welcome you.</p>
                 <div class="cta-container">
-                    <a href="https://wa.me/message/WRMYBZ57VSD4K1" target="_blank" rel="noopener"
+                    <a href="https://wa.me/917994131210" target="_blank" rel="noopener"
                         class="cta-btn" aria-label="Chat with Tamarind hosts on WhatsApp">Chat on Whatsapp</a>
                     <a href="https://airbnb.co.in/h/underthetamarind" target="_blank" rel="noopener"
                         class="cta-btn-green" aria-label="Book Tamarind farm stay on Airbnb">Book on Airbnb</a>
@@ -2820,7 +2802,7 @@
                     <h4 style="color: var(--brick);">Planning a small gathering?</h4>
                     <p style="max-width: 600px; margin: 10px auto;">From intimate get togethers to art workshops, this
                         space provides the perfect quiet backdrop for your next event.</p>
-                    <a href="https://wa.me/7994131210"
+                    <a href="https://wa.me/917994131210"
                         style="display: inline-block; margin-top: 15px; color: var(--brick); font-weight: bold; text-decoration: none; border-bottom: 2px solid var(--brick);"
                         target="_blank" rel="noopener" aria-label="Enquire about events on WhatsApp">Enquire about
                         Events →</a>
@@ -2936,7 +2918,7 @@
                         <summary>Can I host a small event, photoshoot or workshop here?</summary>
                         <div class="faq-answer">
                             <p>Often, yes. We host intimate gatherings, art workshops and small photoshoots when the
-                                property feels right for it. Drop us a note on <a href="https://wa.me/7994131210"
+                                property feels right for it. Drop us a note on <a href="https://wa.me/917994131210"
                                     target="_blank" rel="noopener">WhatsApp</a> with the date and what you have in mind,
                                 and we'll let you know.</p>
                         </div>
@@ -2949,7 +2931,7 @@
                                 The simplest way to see live pricing for your dates is on our <a
                                     href="https://airbnb.co.in/h/underthetamarind" target="_blank" rel="noopener">Airbnb
                                     listing</a>. For longer stays, multi-night discounts or a direct enquiry, message us
-                                on <a href="https://wa.me/message/WRMYBZ57VSD4K1" target="_blank"
+                                on <a href="https://wa.me/917994131210" target="_blank"
                                     rel="noopener">WhatsApp</a> — we usually reply within the hour.</p>
                         </div>
                     </details>
@@ -3115,6 +3097,20 @@
     </footer>
 
     <script>
+        /* --- WhatsApp: single source of truth for the number + URL format -----
+           Every WhatsApp link on the site should be built from this so the
+           number only lives in one place. This does not touch how links are
+           clicked (still plain <a href> tags) or how clicks are tracked —
+           the tracking script further down classifies by href pattern, so
+           any wa.me URL built here is picked up exactly as before.
+        ------------------------------------------------------------------------ */
+        var WHATSAPP_NUMBER = '917994131210'; // E.164 without '+', matches +91-7994131210
+        var WHATSAPP_DEFAULT_MESSAGE = "Hi! I'm interested in booking a stay at Tamarind. Could you help me with rates and availability?";
+
+        function whatsappUrl(message) {
+            return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message || WHATSAPP_DEFAULT_MESSAGE);
+        }
+
         const observerOptions = {
             root: null,
             threshold: 0.15
@@ -3317,7 +3313,6 @@
         ------------------------------------------------------------------------ */
         (function () {
             var BOOKING_API = 'https://tamarind-availability.underthetamarind.workers.dev';
-            var WHATSAPP_NUMBER = '917994131210';
             var MAX_MONTHS_AHEAD = 12;
 
             var section = document.getElementById('availability');
@@ -3539,7 +3534,7 @@
                 var message = 'Hi! I\'d love to stay at Tamarind from ' + inLabel + ' to ' + outLabel +
                     ' (' + nights + (nights === 1 ? ' night' : ' nights') + '), for ' + guests + ' ' + guestWord +
                     '. Could you let me know if these dates work?';
-                whatsappBtn.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message);
+                whatsappBtn.href = whatsappUrl(message);
             }
 
             prevBtn.addEventListener('click', function () {
